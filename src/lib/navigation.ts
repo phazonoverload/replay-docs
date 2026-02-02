@@ -136,6 +136,10 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
             },
           ],
         },
+        {
+          title: 'MCP',
+          href: '/basics/replay-devtools/mcp',
+        },
       ],
     },
     {
@@ -159,26 +163,6 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
           title: 'PR Comments',
           href: '/basics/test-suites/pr-comments',
         },
-        {
-          title: 'Performance Analysis',
-          badge: 'experimental',
-          href: '/basics/test-suites/performance-analysis',
-        },
-        {
-          title: 'Root Cause Analysis',
-          badge: 'experimental',
-          href: '/basics/test-suites/root-cause-analysis',
-        },
-        // {
-        //   title: 'Analytics',
-        //   href: '/basics/test-suites/analytics',
-        //
-        // },
-        // {
-        //   title: 'Test Flake Detection',
-        //   href: '/basics/test-suites/test-flake-detection',
-        //
-        // },
       ],
     },
   ],
