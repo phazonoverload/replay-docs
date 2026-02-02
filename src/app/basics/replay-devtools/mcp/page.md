@@ -15,13 +15,13 @@ The MCP server for a given recording can be accessed at `https://dispatch.replay
 
 Examples of launching Claude Code with the MCP servers for specific recordings:
 
-```
+```sh
 claude --mcp-config '{"mcpServers":{"replay":{"type":"http","url":"https://dispatch.replay.io/nut/recording/<recording-id>/mcp"}}}'
 ```
 
 With an API key:
 
-```
+```sh
 claude --mcp-config '{
   "mcpServers": {
     "replay": {
@@ -37,7 +37,7 @@ claude --mcp-config '{
 
 When launched this way Claude Code will connect to the MCP server and use it to debug the recording according to any instructions you give it.  For example:
 
-```
+```text
 use the replay MCP server you have access to and debug this test failure:
 
 Error: Timed out 15000ms waiting for
