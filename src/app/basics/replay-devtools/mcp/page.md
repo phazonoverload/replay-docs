@@ -9,7 +9,7 @@ AI Agents can use MCP to inspect a Replay recording. This provides a set of debu
 
 Replay MCP is experimental. Reach out on [Discord](https://replay.io/discord) with any issues.
 
-Load the [Replay MCP Skill](https://github.com/replayio/docs/blob/main/src/app/basics/replay-devtools/mcp/skill.md) into your agent to teach it how to use these tools.
+Load the [Replay MCP Skill](https://raw.githubusercontent.com/replayio/docs/refs/heads/main/src/app/basics/replay-devtools/mcp/skill.md) into your agent to teach it how to use these tools.
 
 ### Server Connection (Universal)
 
