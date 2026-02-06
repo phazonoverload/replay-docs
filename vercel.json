@@ -1120,6 +1120,10 @@
     {
       "source": "/reference/api-keys",
       "destination": "/reference/ci-workflows/generate-api-key"
+    },
+    {
+      "source": "/basics/replay-devtools/mcp",
+      "destination": "/basics/replay-mcp/overview"
     }
   ],
   "rewrites": [

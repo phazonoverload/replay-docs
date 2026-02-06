@@ -66,6 +66,7 @@ import { SecurityPrinciplesIcon } from './icons/SecurityPrinciplesIcon'
 import { IntegrationsIcon } from './icons/IntegrationsIcon'
 import { FrameworksIcon } from './icons/FrameworksIcon'
 import { AdditionalContent } from './icons/AdditionalContent'
+import { MCPIcon } from './icons/MCPIcon'
 
 import { EmptyIcon } from './icons/EmptyIcon'
 import { OtherCiProviders } from './icons/OtherCiProviders'
@@ -147,6 +148,7 @@ export const icons = {
   magnifying: MagnifyingGlassIcon,
   beaker: BeakerIcon,
   additionalcontent: AdditionalContent,
+  mcp: MCPIcon,
 }
 export function NavIcon({
   icon = 'file',

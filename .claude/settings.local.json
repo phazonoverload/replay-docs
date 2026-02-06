@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(xargs -I {} sh -c 'echo \"\"===== {} =====\"\"; head -50 \"\"{}\"\"')",
+      "WebFetch(domain:docs.cursor.com)",
+      "WebFetch(domain:code.visualstudio.com)",
+      "WebFetch(domain:developers.openai.com)",
+      "Bash(grep:*)",
+      "WebFetch(domain:cursor.com)"
+    ]
+  }
+}
