@@ -1,15 +1,46 @@
 ---
-title: Replay MCP
+title: Overview
 description: Agentic time travel debugging for your application.
 ---
 
-## Overview
+AI Agents can use MCP to inspect a [Replay recording](/basics/getting-started/record-your-app). This provides a set of debugging tools that the agent uses to inspect every detail of what happened within a recording.
 
-AI Agents can use MCP to inspect a Replay recording. This provides a set of debugging tools that the agent uses to inspect every detail of what happened within a recording.
-
+{% callout type="note" %}
 Replay MCP is experimental. Reach out on [Discord](https://replay.io/discord) with any issues.
+{% /callout %}
 
-Load the [Replay MCP Skill](https://raw.githubusercontent.com/replayio/docs/refs/heads/main/src/app/basics/replay-devtools/mcp/skill.md) into your agent to teach it how to use these tools.
+## Debugging with A.I.
+Traditionally, to debug your app, you need to first record it with the Replay CLI and then you can start debugging the recording using the Replay DevTools. 
+
+**In agentic workflow**, you can achieve this by using **Skills** to handle the recording, and then use the **Replay MCP** server to provide your A.I. agent with proper debugging metadata. [Read more](/basics/time-travel/how-does-time-travel-work) what Replay actually does to get achieve this.
+
+{% table %}
+- Action
+- Without A.I.
+- With A.I.
+
+---
+- **Recording**
+- Replay CLI
+- **✨Skills✨**
+
+---
+- **Debugging**
+- Replay DevTools
+- **✨Replay MCP✨**
+
+{% /table %}
+
+## Skills
+
+We recommend to load the [Replay MCP Skill](https://github.com/replayio/skills/tree/main/skills) into your agent to teach it how to use these tools.
+
+You can also add Replay Skills to your project using the `npx skills add` command.
+```sh
+npx skills add https://github.com/replayio/skills --skill '*'
+```
+
+## MCP
 
 ### Server Connection (Universal)
 

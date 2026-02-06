@@ -136,9 +136,20 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
             },
           ],
         },
+      ],
+    },
+    {
+      title: "Replay MCP",
+      icon: 'mcp',
+      defaultOpen: true,
+      links: [
         {
-          title: 'MCP',
-          href: '/basics/replay-devtools/mcp',
+          title: 'Overview',
+          href: '/basics/replay-mcp/overview',
+        },
+        {
+          title: 'Quickstart',
+          href: '/basics/replay-mcp/quickstart',
         },
       ],
     },
