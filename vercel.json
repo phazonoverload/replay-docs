@@ -166,7 +166,7 @@
     },
     {
       "source": "/reference-guide/breakpoints",
-      "destination": "/basics/replay-devtools/browser-devtools/pause-panel "
+      "destination": "/basics/replay-devtools/browser-devtools/pause-panel"
     },
     {
       "source": "/reference-guide/events",
@@ -843,7 +843,7 @@
     },
     {
       "source": "/test-suites/performance-analysis",
-      "destination": "/basics/test-suites/performance-analysis"
+      "destination": "/basics/test-suites/overview"
     },
     {
       "source": "/test-suites/pr-comments",
@@ -855,7 +855,7 @@
     },
     {
       "source": "/test-suites/root-cause-analysis",
-      "destination": "/basics/test-suites/root-cause-analysis"
+      "destination": "/basics/test-suites/overview"
     },
     {
       "source": "/test-suites/top-failing-and-flaky-tests",

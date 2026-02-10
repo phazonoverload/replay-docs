@@ -10,21 +10,25 @@ Replay MCP is experimental. Reach out on [Discord](https://replay.io/discord) wi
 {% /callout %}
 
 ## Debugging with A.I.
-Traditionally, to debug your app, you need to first record it with the Replay CLI and then you can start debugging the recording using the Replay DevTools. 
+
+Traditionally, to debug your app, you need to first record it with the Replay CLI and then you can start debugging the recording using the Replay DevTools.
 
 **In agentic workflow**, you can achieve this by using **Skills** to handle the recording, and then use the **Replay MCP** server to provide your A.I. agent with proper debugging metadata. [Read more](/basics/time-travel/how-does-time-travel-work) what Replay actually does to get achieve this.
 
 {% table %}
+
 - Action
 - Without A.I.
 - With A.I.
 
 ---
+
 - **Recording**
 - Replay CLI
 - **✨Skills✨**
 
 ---
+
 - **Debugging**
 - Replay DevTools
 - **✨Replay MCP✨**
@@ -36,6 +40,7 @@ Traditionally, to debug your app, you need to first record it with the Replay CL
 We recommend to load the [Replay MCP Skill](https://github.com/replayio/skills/tree/main/skills) into your agent to teach it how to use these tools.
 
 You can also add Replay Skills to your project using the `npx skills add` command.
+
 ```sh
 npx skills add https://github.com/replayio/skills --skill '*'
 ```
@@ -70,7 +75,7 @@ claude --mcp-config '{
 }'
 ```
 
-When launched this way Claude Code will connect to the MCP server and use it to inspect any recordings whose ID it knows.  For example:
+When launched this way Claude Code will connect to the MCP server and use it to inspect any recordings whose ID it knows. For example:
 
 ```text
 use the replay MCP server you have access to and debug this test failure in recording <recording-id>:
@@ -110,7 +115,7 @@ claude --mcp-config '{
 }'
 ```
 
-When launched this way Claude Code will connect to the MCP server and use it to debug the specific recording according to any instructions you give it.  For example:
+When launched this way Claude Code will connect to the MCP server and use it to debug the specific recording according to any instructions you give it. For example:
 
 ```text
 use the replay MCP server you have access to and debug this test failure:

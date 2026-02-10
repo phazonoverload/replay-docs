@@ -153,7 +153,7 @@ There are a couple of strategies you can adopt, but generally you can use Replay
 
 When a test fails on CI, you don’t need to replicate it locally anymore. A replay captures your test run **exactly** as it happened and will provide you better insight than if you tried to locally reproduce an issue from CI.
 
-If you battle with flaky tests, you can [compare a failing and a passing test](https://replay.help/playwright-flake-debug) to detect the difference. This can be caused by inconsistent data, race condition, the test running too fast, or any other reason. What’s important is that the reason will no longer be a mystery, because Replay Browser records your test steps, your app, and everything in between. If you were able to capture the test flake, you’ll be able to debug it. Soon, we’ll be able to [help you find the root cause](/basics/test-suites/root-cause-analysis).
+If you battle with flaky tests, you can [compare a failing and a passing test](https://replay.help/playwright-flake-debug) to detect the difference. This can be caused by inconsistent data, race condition, the test running too fast, or any other reason. What’s important is that the reason will no longer be a mystery, because Replay Browser records your test steps, your app, and everything in between. If you were able to capture the test flake, you’ll be able to debug it. Soon, we'll be able to help you find the root cause.
 
 {% /accordion-item %}
 

@@ -51,12 +51,12 @@ export function Figure({
         {fill && gradient ? (
           <div className="absolute bottom-3 left-3 right-3 top-3 sm:bottom-4 sm:left-4 sm:right-4 sm:top-4">
             <Zoom>
-              <Image {...imgProps} placeholder={LoaderAnimation} />
+              <Image {...imgProps} alt={alt} placeholder={LoaderAnimation} />
             </Zoom>
           </div>
         ) : (
           <Zoom>
-            <Image {...imgProps} placeholder={LoaderAnimation} />
+            <Image {...imgProps} alt={alt} placeholder={LoaderAnimation} />
           </Zoom>
         )}
       </div>
