@@ -47,7 +47,7 @@ npx playwright test --project replay-chromium --reporter=@replayio/playwright/re
 
 ## Upload replays
 
-Use the [@replayio/replay](https://github.com/replayio/replay-cli/tree/main/packages/replay) CLI in your workflow to add source control metadata and upload replays to your team.
+Use the [@replayio/replay](https://github.com/replayio/replay-cli/tree/main/packages/replayio) CLI in your workflow to add source control metadata and upload replays to your team.
 
 1. Install the CLI
 2. Add metadata for all replays generated during the test run
@@ -56,7 +56,7 @@ Use the [@replayio/replay](https://github.com/replayio/replay-cli/tree/main/pack
 **Example**
 
 ```bash
-npm i -g @replayio/replay
+npm i -g replayio
 replay metadata --init --keys source --warn
 replay upload-all --api-key <api key>
 ```
@@ -65,4 +65,4 @@ You can also set `REPLAY_API_KEY` as an environment variable instead of passing 
 
 The Replay CLI provides other commands and options, such as filtering which replays are uploaded.
 
-[Full instructions at the `@replayio/replay` repo.](https://github.com/replayio/replay-cli/tree/main/packages/replay)
+[Full instructions at the `replayio` repo.](https://github.com/replayio/replay-cli/tree/main/packages/replayio)

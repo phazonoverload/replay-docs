@@ -3,7 +3,6 @@ title: Quickstart
 description: Learn how to use Replay MCP with your A.I. agent.
 ---
 
-
 {% steps %}
 
 ## Install the Replay Skills
@@ -19,9 +18,11 @@ npx skills add https://github.com/replayio/skills --skill '*'
 
 {% /tab %}
 {% tab %}
+
 ```sh
 yarn dlx skills add https://github.com/replayio/skills --skill '*'
 ```
+
 {% /tab %}
 
 {% tab %}
@@ -103,9 +104,10 @@ http_headers = { "Authorization" = "YOUR_API_KEY" }
 Instruct your agent to open replay-cli. This will open the browser that records the activity. Replicate the issue that you want to debug. Once replicated, exit the browser completely.
 
 Example prompt:
+
 ```prompt
-Please help me debug issues on my applcation. 
-Use replay-cli skill to record my application running on localhost:3000. 
+Please help me debug issues on my applcation.
+Use replay-cli skill to record my application running on localhost:3000.
 Then use Replay MCP to debug the recording.
 ```
 
@@ -118,7 +120,7 @@ Usually this is enough for Replay to debug your issue and provide your agent wit
 5. Your agent will then take care of the rest thanks to the analysis provided by Replay MCP
 
 {% callout type="note" %}
-For best results, keep your recordings short. 
+For best results, keep your recordings short.
 {% /callout %}
 
 ## Use Replay MCP to debug your application

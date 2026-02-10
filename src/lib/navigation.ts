@@ -139,7 +139,7 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
       ],
     },
     {
-      title: "Replay MCP",
+      title: 'Replay MCP',
       icon: 'mcp',
       defaultOpen: true,
       links: [

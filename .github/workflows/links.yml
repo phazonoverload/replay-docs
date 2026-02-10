@@ -9,18 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 8
-      - uses: volta-cli/action@v4
-        with:
-          node-version: 20.12.0
-
-      - name: Install packages
-        run: pnpm install
-      - name: Install bun
-        run: pnpm install -g bun
-      - name: Links
-        run: pnpm run links
+      - name: Check links
+        run: ./scripts/checkLinks.sh
         env:
           BASE_URL: ${{ github.event.deployment_status.target_url }}

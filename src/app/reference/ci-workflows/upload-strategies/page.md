@@ -169,7 +169,7 @@ export default config;
 
 Many CI providers provide an environment variable that references the current branch name.
 
-- [CircleCI](https://circleci.com/docs/2.0/env-vars/#built-in-environment-variables): `$CIRCLE_BRANCH`
+- [CircleCI](https://circleci.com/docs/reference/variables/): `$CIRCLE_BRANCH`
 - [GitLab](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html): `$CI_COMMIT_REF_NAME`
 - [Semaphore](https://docs.semaphoreci.com/ci-cd-environment/environment-variables/): `$SEMAPHORE_GIT_BRANCH`
 - [Travis](https://docs.travis-ci.com/user/environment-variables/#default-environment-variables): `$TRAVIS_BRANCH`
