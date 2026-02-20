@@ -37,7 +37,7 @@
 .prose p > code,
 .prose li > code,
 .prose h2 > code {
-  @apply mx-0.5 text-nowrap rounded-md border border-gray-500 border-opacity-30 bg-gray-500 bg-opacity-10 px-1 py-1 font-semibold;
+  @apply mx-0.5 break-all rounded-md border border-gray-500 border-opacity-30 bg-gray-500 bg-opacity-10 px-1 py-1 font-semibold;
 }
 
 .prose h2 {
