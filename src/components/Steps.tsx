@@ -33,7 +33,7 @@ export function Steps({ children }: { children: React.ReactNode }) {
         <div key={sectionIndex}>
           <div
             className={clsx(
-              'w-full ml-0 flex before:relative before:bottom-0 before:left-[18px] before:top-0 before:-z-10 before:-mb-12 before:mt-28 before:border-2 before:border-sky-500/20 md:before:block lg:-ml-[50px]',
+              'ml-0 flex w-full before:relative before:bottom-0 before:left-[18px] before:top-0 before:-z-10 before:-mb-12 before:mt-28 before:border-2 before:border-sky-500/20 md:before:block lg:-ml-[50px]',
               sectionIndex + 1 === splitArrayResult.length && 'before:mb-0',
             )}
           >
