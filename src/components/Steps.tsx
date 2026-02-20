@@ -33,14 +33,14 @@ export function Steps({ children }: { children: React.ReactNode }) {
         <div key={sectionIndex}>
           <div
             className={clsx(
-              'ml-0 flex before:relative before:bottom-0 before:left-[18px] before:top-0 before:-z-10 before:-mb-12 before:mt-28 before:border-2 before:border-sky-500/20 md:before:block lg:-ml-[50px]',
+              'ml-0 flex w-full before:relative before:bottom-0 before:left-[18px] before:top-0 before:-z-10 before:-mb-12 before:mt-28 before:border-2 before:border-sky-500/20 md:before:block lg:-ml-[50px]',
               sectionIndex + 1 === splitArrayResult.length && 'before:mb-0',
             )}
           >
             <div className="mr-4 mt-16 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border-[3px] border-sky-500 font-bold text-sky-500 ">
               {sectionIndex + 1}
             </div>
-            <div className="w-full">
+            <div className="min-w-0 flex-1">
               {section.map((item, itemIndex) => (
                 <Fragment key={itemIndex}>{item}</Fragment>
               ))}
