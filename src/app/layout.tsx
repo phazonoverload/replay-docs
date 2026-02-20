@@ -9,6 +9,7 @@ import { Analytics as VercelAnalytics } from '@vercel/analytics/react'
 
 import '@/styles/tailwind.css'
 import Analytics from '@/components/Analytics'
+import Script from 'next/script'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -71,6 +72,26 @@ export default function RootLayout({
     >
       <head>
         <Analytics />
+        <Script
+          id="apollo-website-tracker"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+function initApollo(){
+  var n = Math.random().toString(36).substring(7);
+  var o = document.createElement("script");
+  o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n;
+  o.async = true;
+  o.defer = true;
+  o.onload = function(){
+    window.trackingFunctions.onLoad({appId: "69987d99eda3b200117689e4"});
+  };
+  document.head.appendChild(o);
+}
+initApollo();
+            `.trim(),
+          }}
+        />
       </head>
       <body className="flex min-h-full bg-white dark:bg-gray-900">
         <Providers>
