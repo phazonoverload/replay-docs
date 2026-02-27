@@ -73,22 +73,38 @@ export default function RootLayout({
       <head>
         <Analytics />
         <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-244NMJ9B93');
+            `,
+          }}
+        />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-244NMJ9B93"
+          strategy="afterInteractive"
+        />
+        <Script
           id="apollo-website-tracker"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-function initApollo(){
-  var n = Math.random().toString(36).substring(7);
-  var o = document.createElement("script");
-  o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n;
-  o.async = true;
-  o.defer = true;
-  o.onload = function(){
-    window.trackingFunctions.onLoad({appId: "69987d99eda3b200117689e4"});
-  };
-  document.head.appendChild(o);
-}
-initApollo();
+              function initApollo(){
+                var n = Math.random().toString(36).substring(7);
+                var o = document.createElement("script");
+                o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n;
+                o.async = true;
+                o.defer = true;
+                o.onload = function(){
+                  window.trackingFunctions.onLoad({appId: "69987d99eda3b200117689e4"});
+                };
+                document.head.appendChild(o);
+              }
+              initApollo();
             `.trim(),
           }}
         />
