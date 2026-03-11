@@ -139,6 +139,17 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
       ],
     },
     {
+      title: 'Replay Chrome Extension',
+      icon: 'replaychrome',
+      defaultOpen: true,
+      links: [
+        {
+          title: 'Getting Started',
+          href: '/basics/replay-chrome-extension/getting-started',
+        },
+      ],
+    },
+    {
       title: 'Replay MCP',
       icon: 'mcp',
       defaultOpen: true,

@@ -2,6 +2,7 @@ import type { MDXComponents } from 'mdx/types'
 
 import { Accordion, AccordionItem } from '@/components/Accordian'
 import { Basic } from '@/components/Basic'
+import { Button } from '@/components/Button'
 import { Callout } from '@/components/Callout'
 import { Fence } from '@/components/Fence'
 import { Figure } from '@/components/Figure'
@@ -30,6 +31,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Group,
     Icon,
     Basic,
+    Button,
     SnapshotsVsReplay,
     pre: ({ children, ...props }: React.ComponentPropsWithoutRef<'pre'>) => {
       const codeEl = children as React.ReactElement<Record<string, unknown>>

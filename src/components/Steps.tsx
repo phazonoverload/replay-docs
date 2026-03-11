@@ -9,7 +9,7 @@ export function Steps({ children }: { children: React.ReactNode }) {
 
     arr.forEach((item: React.ReactNode) => {
       // @ts-ignore
-      if (item?.type === 'a') {
+      if (item?.type === 'h2') {
         if (currentSubArray.length) {
           subArrays.push(currentSubArray)
         }
