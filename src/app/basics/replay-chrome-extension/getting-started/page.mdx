@@ -9,27 +9,30 @@ The Replay Chrome extension lets you record a bug directly from Chrome, then ins
 
 No CLI to install. No test runner to configure. Just open your app, hit Record, reproduce the bug, and share the replay.
 
-
 <Steps>
 
 ## Install from the Chrome Web Store
 
 Click the button below to go directly to the Replay listing in the Chrome Web Store, then click **Add to Chrome**.
 
-<Button href="https://chromewebstore.google.com/detail/replay-recorder/lkbmpddckbjbfaekcjacjgpehgaaijhh?authuser=2&hl=en" variant="primary">Add Replay to Chrome</Button>
+<Button
+  href="https://chromewebstore.google.com/detail/replay-recorder/lkbmpddckbjbfaekcjacjgpehgaaijhh?authuser=2&hl=en"
+  variant="primary"
+>
+  Add Replay to Chrome
+</Button>
 
 Once installed, you'll see the Replay icon in Chrome's Extension tab. You can pin it so its icon is only a click away when you need it.
 
 ## Launch the Replay extension & Sign In
 
-Launch the Replay extension icon in the toolbar and sign in with your Replay account. 
+Launch the Replay extension icon in the toolbar and sign in with your Replay account.
 
-If you don't have an account yet, then sign in with Google. 
+If you don't have an account yet, then sign in with Google.
 
 ## (Optional) Pin the extension
 
 For easy access, right-click the Replay icon in the toolbar and select **Pin** so it's always visible.
-
 
 ## Navigate to your app
 
@@ -41,7 +44,6 @@ Open the page where the bug occurs in Chrome. The extension works on any URL Chr
 - **Production URLs** — including deployed Lovable, Base44, Replit, and other vibe-coded apps
 
 When debugging dev preview URLs from vibe-coding tools, make sure to open the preview in a new tab first, then run the Replay extension on that tab.
-
 
 ## Start recording
 
@@ -55,14 +57,11 @@ Interact with your app normally. Click buttons, fill in forms, trigger the broke
 
 As soon as you've reproduced your bug, click the Stop Recording button, and the Replay recording will start processing.
 
-
-
 ## Ask Replay agent to fix the issue
+
 Ask your question, and watch the agent come up with an analysis and a recommended fix you can paste back into whatever vibecoding tool you're using.
 
 </Steps>
-
-
 
 ## FAQ
 
@@ -72,16 +71,21 @@ The extension captures JavaScript execution, network requests, DOM mutations, co
 </AccordionItem>
 
 <AccordionItem title="Does recording affect app performance?">
-Recording adds some overhead, but in most cases it's not noticeable during normal app usage. If you're testing performance-sensitive flows, use the Replay browser via the CLI for lower overhead.
+  Recording adds some overhead, but in most cases it's not noticeable during
+  normal app usage. If you're testing performance-sensitive flows, use the
+  Replay browser via the CLI for lower overhead.
 </AccordionItem>
 
 <AccordionItem title="Who can see my recordings?">
-Recordings are private to your account by default. You can share a replay by sending the link, or manage access in your team settings.
+  Recordings are private to your account by default. You can share a replay by
+  sending the link, or manage access in your team settings.
 </AccordionItem>
 
 <AccordionItem title="Can I record localhost?">
-Yes. The extension works on any page Chrome can open, including `localhost` and local network addresses, but it is better at debugging dev preview urls because they include more information for Replay to analyze, for example source maps. 
+  Yes. The extension works on any page Chrome can open, including `localhost`
+  and local network addresses, but it is better at debugging dev preview urls
+  because they include more information for Replay to analyze, for example
+  source maps.
 </AccordionItem>
-
 
 </Accordion>
