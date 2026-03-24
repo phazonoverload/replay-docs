@@ -116,7 +116,7 @@ export const icons = {
 }
 
 export const iconStyles = {
-  blue: '[--icon-foreground:theme(colors.slate.900)] [--icon-background:theme(colors.white)]',
+  blue: '[--icon-foreground:theme(colors.gray.900)] [--icon-background:theme(colors.white)]',
   amber:
     '[--icon-foreground:theme(colors.amber.900)] [--icon-background:theme(colors.amber.100)]',
   pink: '[--icon-foreground:theme(colors.pink.900)] [--icon-background:theme(colors.pink.100)]',

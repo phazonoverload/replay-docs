@@ -85,11 +85,13 @@ export default function Page() {
   return (
     <div
       data-test-id="page"
-      className="mx-auto flex max-w-4xl flex-col px-4 py-8"
+      className="mx-auto flex w-full max-w-6xl flex-col px-4 py-8 lg:px-8"
     >
       <Hero />
-      <h2 className="py-8 text-2xl font-semibold">Topics</h2>
-      <div className="grid place-items-center gap-4 pb-20 md:grid-cols-2 lg:grid-cols-3">
+      <h2 className="py-8 text-2xl font-semibold text-gray-900 dark:text-white">
+        Topics
+      </h2>
+      <div className="grid grid-cols-1 gap-4 pb-20 sm:grid-cols-2 lg:grid-cols-3">
         {cards.map(({ href, content, icon, title }) => (
           <Card
             key={href}
@@ -100,7 +102,9 @@ export default function Page() {
           />
         ))}
       </div>
-      <h2 className="pb-8 text-2xl font-semibold">Learn the basics</h2>
+      <h2 className="pb-8 text-2xl font-semibold text-gray-900 dark:text-white">
+        Learn the basics
+      </h2>
       <div className="grid place-items-stretch gap-4 pb-20 md:grid-cols-2 lg:grid-cols-3">
         {miniCards.map(({ href, content, icon, title }) => (
           <MiniCard

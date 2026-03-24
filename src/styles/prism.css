@@ -1,9 +1,10 @@
 .prose pre a {
-  color: #41b0f6;
+  color: hsl(var(--primary));
+  font-weight: 700;
 }
 
 pre[class*='language-'] {
-  color: theme('colors.slate.50');
+  color: theme('colors.zinc.50');
 }
 
 .token.tag,
@@ -20,7 +21,7 @@ pre[class*='language-'] {
 .token.rule,
 .token.pseudo-class,
 .token.important {
-  color: theme('colors.slate.300');
+  color: theme('colors.zinc.300');
 }
 
 .token.module {
@@ -36,7 +37,7 @@ pre[class*='language-'] {
 
 .token.punctuation,
 .token.attr-equals {
-  color: theme('colors.slate.500');
+  color: theme('colors.zinc.500');
 }
 
 .token.unit,
@@ -47,5 +48,5 @@ pre[class*='language-'] {
 .token.comment,
 .token.operator,
 .token.combinator {
-  color: theme('colors.slate.400');
+  color: theme('colors.zinc.400');
 }

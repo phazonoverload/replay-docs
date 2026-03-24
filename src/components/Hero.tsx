@@ -6,9 +6,9 @@ import { featureFlags } from '@/lib/featureFlags'
 export function Hero() {
   const { theme } = useTheme()
   return (
-    <div className="mt-[-4.75rem] max-w-8xl  overflow-hidden border-b-2 border-gray-500 border-opacity-5 bg-transparent pt-[4.75rem]">
+    <div className="mt-[-4.75rem] max-w-8xl overflow-hidden border-b border-gray-200 bg-transparent pt-[4.75rem] dark:border-zinc-800">
       <div className="pb-16 pt-8 sm:px-2 lg:relative lg:px-0">
-        <div className=" max-w-2xl">
+        <div className="max-w-2xl">
           <div className="relative z-10 md:text-center lg:text-left">
             <div className="relative">
               {featureFlags.showLogo && (
@@ -17,17 +17,17 @@ export function Hero() {
                   className="mb-4 w-10"
                 />
               )}
-              <p className="inline font-display text-3xl font-medium tracking-tight text-gray-900 dark:text-slate-100">
+              <p className="inline font-display text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
                 Replay documentation
               </p>
-              <p className="mt-3 text-lg tracking-tight text-gray-600 dark:text-slate-400">
+              <p className="mt-3 text-lg font-normal tracking-tight text-gray-600 dark:text-zinc-400">
                 Learn to record your first replay, inspect your app with Replay
                 DevTools, and drive your test flakes to zero.{' '}
               </p>
               <p className="mt-8">
                 <a
                   href="/basics/getting-started/record-your-app"
-                  className="rounded-full border-2 border-blue-500 px-4 py-2 text-blue-500 transition-colors hover:bg-blue-500 hover:text-white"
+                  className="inline-flex items-center rounded-full bg-gray-900 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-gray-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
                 >
                   Get started with our Quickstart Guide
                 </a>

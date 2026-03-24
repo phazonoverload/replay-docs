@@ -144,7 +144,7 @@ function LoadingIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 function HighlightQuery({ text, query }: { text: string; query: string }) {
   return (
     <Highlighter
-      highlightClassName="group-aria-selected:underline bg-transparent text-sky-600 dark:text-sky-400"
+      highlightClassName="bg-transparent font-semibold text-primary group-aria-selected:underline"
       searchWords={[query]}
       autoEscape={true}
       textToHighlight={text}
@@ -184,7 +184,7 @@ function SearchResult({
       <div
         id={`${id}-title`}
         aria-hidden="true"
-        className="text-sm text-gray-700 group-aria-selected:text-sky-600 dark:text-gray-300 dark:group-aria-selected:text-sky-400"
+        className="text-sm font-medium text-gray-700 group-aria-selected:text-primary dark:text-gray-300 dark:group-aria-selected:text-primary"
       >
         <HighlightQuery text={result.title} query={query} />
       </div>
@@ -266,7 +266,7 @@ const SearchInput = forwardRef<
       <input
         ref={inputRef}
         className={clsx(
-          'flex-auto appearance-none bg-transparent pl-12 text-gray-900 outline-none placeholder:text-gray-400 focus:w-full focus:flex-none sm:text-sm dark:text-white [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden [&::-webkit-search-results-button]:hidden [&::-webkit-search-results-decoration]:hidden',
+          'flex-auto appearance-none rounded-xl bg-transparent pl-12 text-gray-900 outline-none placeholder:text-gray-400 focus:w-full focus:flex-none dark:text-white sm:text-sm [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden [&::-webkit-search-results-button]:hidden [&::-webkit-search-results-decoration]:hidden',
           autocompleteState.status === 'stalled' ? 'pr-11' : 'pr-4',
         )}
         {...inputProps}
@@ -379,7 +379,7 @@ function SearchDialog({
         <div className="fixed inset-0 bg-gray-900/50 backdrop-blur" />
 
         <div className="fixed inset-0 overflow-y-auto px-4 py-4 sm:px-6 sm:py-20 md:py-32 lg:px-8 lg:py-[15vh]">
-          <Dialog.Panel className="mx-auto transform-gpu overflow-hidden rounded-xl bg-white shadow-xl sm:max-w-xl dark:bg-gray-800 dark:ring-1 dark:ring-gray-700">
+          <Dialog.Panel className="mx-auto transform-gpu overflow-hidden rounded-xl bg-white shadow-xl dark:bg-gray-800 dark:ring-1 dark:ring-gray-700 sm:max-w-xl">
             <div {...autocomplete.getRootProps({})}>
               <form
                 ref={formRef}
@@ -453,15 +453,15 @@ export function Search() {
     <>
       <button
         type="button"
-        className="group flex h-6 w-6 items-center justify-center sm:justify-start md:h-auto md:w-80 md:flex-none md:rounded-lg md:py-2.5 md:pl-4 md:pr-3.5 md:text-sm md:ring-1 md:ring-gray-200 md:hover:ring-gray-300 lg:w-96 dark:md:bg-gray-800/75 dark:md:ring-inset dark:md:ring-white/5 dark:md:hover:bg-gray-700/40 dark:md:hover:ring-gray-500"
+        className="group flex h-6 w-6 items-center justify-center sm:justify-start md:h-auto md:w-80 md:flex-none md:rounded-xl md:border md:border-gray-200 md:bg-gray-100 md:py-2.5 md:pl-4 md:pr-3.5 md:text-sm md:shadow-sm md:hover:border-gray-300 md:hover:bg-gray-50 dark:md:border-zinc-800 dark:md:bg-zinc-900 dark:md:hover:border-zinc-700 dark:md:hover:bg-zinc-800/80 lg:w-96"
         {...buttonProps}
       >
-        <SearchIcon className="h-5 w-5 flex-none fill-gray-400 group-hover:fill-gray-500 md:group-hover:fill-gray-400 dark:fill-gray-500" />
+        <SearchIcon className="h-5 w-5 flex-none fill-gray-400 group-hover:fill-gray-500 dark:fill-gray-500 md:group-hover:fill-gray-400" />
         <span className="sr-only md:not-sr-only md:ml-2 md:text-gray-500 md:dark:text-gray-400">
           Search docs
         </span>
         {modifierKey && (
-          <kbd className="ml-auto hidden font-medium text-gray-400 md:block dark:text-gray-500">
+          <kbd className="ml-auto hidden font-medium text-gray-400 dark:text-gray-500 md:block">
             <kbd className="font-sans">{modifierKey}</kbd>
             <kbd className="font-sans">K</kbd>
           </kbd>

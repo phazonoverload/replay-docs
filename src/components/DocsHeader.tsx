@@ -7,8 +7,11 @@ import { NavIcon } from './NavIcon'
 function Badge({ badge }: { badge: string }) {
   return (
     <div>
-      <span className="top absolute right-4 top-4 z-10 inline-block rounded-full bg-white/50 px-4 py-1 text-xs font-semibold text-slate-800">
-        <NavIcon icon="beaker" className="h-4 w-4 text-slate-800" />
+      <span className="top absolute right-4 top-4 z-10 inline-block rounded-full bg-white/50 px-4 py-1 text-xs font-semibold text-gray-800 dark:bg-gray-900/80 dark:text-gray-200">
+        <NavIcon
+          icon="beaker"
+          className="h-4 w-4 text-gray-800 dark:text-gray-200"
+        />
         <span className="uppercase">In the lab</span>
       </span>
     </div>
@@ -44,7 +47,7 @@ export function DocsHeader({
     <header className="space-y-1">
       <title>{documentTitle}</title>
       {navigation && (
-        <p className="font-display text-sm font-medium text-sky-500">
+        <p className="font-display text-sm font-medium text-gray-500 dark:text-zinc-400">
           {section?.title}
         </p>
       )}
@@ -76,7 +79,7 @@ export function DocsHeader({
       </div>
       {!image && description ? (
         <div className="py-4">
-          <hr className=" border-gray-200 dark:border-slate-600" />
+          <hr className="border-gray-200 dark:border-gray-700" />
         </div>
       ) : null}
     </header>

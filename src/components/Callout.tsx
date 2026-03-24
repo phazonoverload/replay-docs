@@ -3,30 +3,34 @@ import clsx from 'clsx'
 import { Icon } from '@/components/Icon'
 import Link from 'next/link'
 
+/** Body copy + inline links/code aligned with main Prose hierarchy (neutral + primary links). */
+const neutralCalloutBody =
+  'text-gray-700 [--tw-prose-background:theme(colors.gray.50)] prose-a:font-bold prose-a:text-primary prose-a:no-underline hover:prose-a:opacity-90 prose-code:font-medium prose-code:text-gray-900 dark:text-gray-300 dark:prose-code:text-gray-200'
+
 const styles = {
   note: {
     container:
-      'bg-sky-50 dark:bg-gray-800/60 dark:ring-1 dark:ring-gray-300/10',
-    title: 'text-sky-900 dark:text-sky-400',
-    body: 'text-sky-800 [--tw-prose-background:theme(colors.sky.50)] prose-a:text-sky-900 prose-code:text-sky-900 dark:text-gray-300 dark:prose-code:text-gray-300',
+      'bg-gray-50 dark:bg-gray-800/60 dark:ring-1 dark:ring-gray-300/10',
+    title: 'text-gray-900 dark:text-white',
+    body: neutralCalloutBody,
   },
   link: {
     container:
-      'bg-sky-50 dark:bg-gray-800/60 dark:ring-1 dark:ring-gray-300/10',
-    title: 'text-sky-900 dark:text-sky-400',
-    body: 'text-sky-800 [--tw-prose-background:theme(colors.sky.50)] prose-a:text-sky-900 prose-code:text-sky-900 dark:text-gray-300 dark:prose-code:text-gray-300',
+      'bg-gray-50 dark:bg-gray-800/60 dark:ring-1 dark:ring-gray-300/10',
+    title: 'text-gray-900 dark:text-white',
+    body: neutralCalloutBody,
   },
   replay: {
     container:
-      'bg-sky-50 dark:bg-gray-800/60 dark:ring-1 dark:ring-gray-300/10',
-    title: 'text-sky-900 dark:text-sky-400',
-    body: 'text-sky-800 [--tw-prose-background:theme(colors.sky.50)] prose-a:text-sky-900 prose-code:text-sky-900 dark:text-gray-300 dark:prose-code:text-gray-300',
+      'bg-gray-50 dark:bg-gray-800/60 dark:ring-1 dark:ring-gray-300/10',
+    title: 'text-gray-900 dark:text-white',
+    body: neutralCalloutBody,
   },
   warning: {
     container:
       'bg-amber-50 dark:bg-gray-800/60 dark:ring-1 dark:ring-gray-300/10',
     title: 'text-amber-900 dark:text-amber-500',
-    body: 'text-amber-800 [--tw-prose-underline:theme(colors.amber.400)] [--tw-prose-background:theme(colors.amber.50)] prose-a:text-amber-900 prose-code:text-amber-900 dark:text-gray-300 dark:[--tw-prose-underline:theme(colors.sky.700)] dark:prose-code:text-gray-300',
+    body: 'text-amber-800 [--tw-prose-underline:theme(colors.amber.400)] [--tw-prose-background:theme(colors.amber.50)] prose-a:font-bold prose-a:text-amber-900 prose-a:no-underline prose-code:font-medium prose-code:text-amber-900 dark:text-gray-300 dark:[--tw-prose-underline:theme(colors.amber-600)] dark:prose-code:text-gray-200',
   },
 }
 
@@ -59,13 +63,21 @@ export function Callout({
     href ? (
       <Link
         href={href}
-        className={clsx('m-0 font-display text-xl', styles[type].title)}
+        className={clsx(
+          'm-0 font-display text-xl font-bold',
+          styles[type].title,
+        )}
       >
         {title}
       </Link>
     ) : (
       title && (
-        <p className={clsx('m-0 font-display text-xl', styles[type].title)}>
+        <p
+          className={clsx(
+            'm-0 font-display text-xl font-bold',
+            styles[type].title,
+          )}
+        >
           {title}
         </p>
       )

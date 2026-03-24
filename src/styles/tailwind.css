@@ -3,6 +3,95 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+/* Design tokens aligned with replay dashboard (global.css :root / .dark) */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 72.2% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 63.9%;
+    --code: 220 13% 18%;
+    --code-foreground: 210 40% 96%;
+    --sidebar: 0 0% 98%;
+    --sidebar-foreground: 0 0% 3.9%;
+    --sidebar-primary: 0 0% 9%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 96.1%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 0 0% 89.8%;
+    --sidebar-ring: 0 0% 63.9%;
+    --chart-1: 25 95% 53%;
+    --chart-2: 173 80% 40%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 96% 56%;
+    --chart-5: 43 96% 56%;
+    --radius-xs: 0.125rem;
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.625rem;
+    --radius-xl: 0.875rem;
+    --radius-2xl: 1rem;
+    --radius-3xl: 1.5rem;
+    --radius-4xl: 2rem;
+    --radius: 0.5rem;
+    --media-background-color: --_primary-color;
+  }
+
+  .dark,
+  [data-theme='dark'] {
+    color-scheme: dark;
+    --background: 0 0% 5.5%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 8.5%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 0 0% 90%;
+    --primary-foreground: 0 0% 7%;
+    --secondary: 0 0% 13%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 0 0% 16%;
+    --accent-foreground: 0 0% 95%;
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 0 0% 55%;
+    --code: 222 47% 11%;
+    --code-foreground: 210 40% 96%;
+    --sidebar: 0 0% 7%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 16%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 16%;
+    --sidebar-ring: 0 0% 40%;
+    --chart-1: 217 91% 60%;
+    --chart-2: 160 84% 39%;
+    --chart-3: 43 96% 56%;
+    --chart-4: 271 81% 56%;
+    --chart-5: 343 77% 50%;
+  }
+}
+
 @layer base {
   [inert] ::-webkit-scrollbar {
     display: none;
@@ -15,10 +104,6 @@
   ::after {
     @apply dark:border-gray-600;
   }
-}
-
-:root {
-  --media-background-color: --_primary-color;
 }
 
 .prose :where(img):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
@@ -46,17 +131,6 @@
 
 .prose h3 {
   margin: 0;
-}
-
-.prose-a\:shadow-\[inset_0_-2px_0_0_var\(--tw-prose-background\2c
-  \#fff\)\2c
-  inset_0_calc\(-1\*\(var\(--tw-prose-underline-size\2c
-  4px\)\+2px\)\)_0_0_var\(--tw-prose-underline\2c
-  theme\(colors\.sky\.300\)\)\]
-  :is(
-    :where(a):not(:where(li > a, [class~='not-prose'], [class~='not-prose'] *))
-  ):has(code) {
-  box-shadow: none;
 }
 
 .callout h2 {
