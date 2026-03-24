@@ -162,6 +162,10 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
           title: 'Quickstart',
           href: '/basics/replay-mcp/quickstart',
         },
+        {
+          title: 'Tools Reference',
+          href: '/basics/replay-mcp/tools',
+        },
       ],
     },
     {
