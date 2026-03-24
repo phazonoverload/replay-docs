@@ -20,7 +20,7 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
       defaultOpen: true,
       links: [
         {
-          title: 'Record your app',
+          title: 'How to record',
           href: '/basics/getting-started/record-your-app',
         },
         {
