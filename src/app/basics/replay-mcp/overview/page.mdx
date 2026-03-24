@@ -3,49 +3,73 @@ title: Overview
 description: Agentic time travel debugging for your application.
 ---
 
-AI Agents can use MCP to inspect a [Replay recording](/basics/getting-started/record-your-app). This provides a set of debugging tools that the agent uses to inspect every detail of what happened within a recording.
+Replay MCP gives AI agents a set of time-travel debugging tools to inspect [Replay recordings](/basics/getting-started/record-your-app). Agents can examine console output, read source code, inspect variables, analyze React components, profile performance, and much more — all through the MCP protocol.
 
-<Callout type="note">
-Replay MCP is experimental. Reach out on [Discord](https://replay.io/discord) with any issues.
-
+<Callout type="link" title="Need a recording first?" light={true}>
+Before using Replay MCP, you need a recording to inspect. See [How to Record](/basics/getting-started/record-your-app) for the three ways to create one: Replay Browser + CLI, Chrome Extension, or Playwright/E2E in CI.
 </Callout>
 
-## Debugging with A.I.
+## What can agents do?
 
-Traditionally, to debug your app, you need to first record it with the Replay CLI and then you can start debugging the recording using the Replay DevTools.
+Replay MCP provides tools across several areas that give agents deep visibility into your application's runtime behavior:
 
-**In agentic workflow**, you can achieve this by using **Skills** to handle the recording, and then use the **Replay MCP** server to provide your A.I. agent with proper debugging metadata. [Read more](/basics/time-travel/how-does-time-travel-work) what Replay actually does to get achieve this.
+- **Source code & console** — browse and search source files, read code with execution annotations, view console output, and see screenshots of visual state at any moment
+- **Code inspection** — inspect variables, evaluate expressions, and examine call stacks at any point during execution. Set virtual breakpoints to observe how values change across multiple executions.
+- **Error detection** — find uncaught exceptions and React-specific crashes that caused components to unmount
+- **Network & storage** — inspect HTTP requests and responses, view localStorage operations
+- **React analysis** — examine the component tree, analyze render behavior across the entire recording, trace what triggered specific re-renders, and identify wasted renders. This is one of Replay MCP's most powerful capabilities — agents can drill from a high-level render summary all the way down to why a specific component fiber re-rendered.
+- **Test analysis** — inspect Playwright test steps, find where tests failed, and see the protocol commands executed during each step
+- **Performance profiling** — profile JavaScript statement execution, analyze React render and effect costs, and find slow functions
 
-| Action        | Without A.I.    | With A.I.          |
-| ------------- | --------------- | ------------------ |
-| **Recording** | Replay CLI      | **✨Skills✨**     |
-| **Debugging** | Replay DevTools | **✨Replay MCP✨** |
+For details on every available tool, see the [Tools Reference](/basics/replay-mcp/tools).
+
+<Callout type="note">
+Some tools are specific to certain recording types. React analysis tools only work with recordings of React applications, and test analysis tools only work with Playwright test recordings.
+</Callout>
+
+## Getting started
+
+To use Replay MCP, you need two things:
+
+1. **Skills** (recommended) — teach your agent how to use the tools effectively
+2. **MCP server connection** — connect your agent to Replay's MCP endpoint
 
 ## Skills
 
-We recommend to load the [Replay MCP Skill](https://github.com/replayio/skills/tree/main/skills) into your agent to teach it how to use these tools.
+[Replay Skills](https://github.com/replayio/skills/tree/main/skills) are instruction files that teach your agent how to use Replay tools effectively. The `replay-mcp` skill helps agents understand which tools to call and in what order when investigating a recording.
 
-You can also add Replay Skills to your project using the `npx skills add` command.
+Add all Replay skills to your project:
 
 ```sh
 npx skills add https://github.com/replayio/skills --skill '*'
 ```
 
-## MCP
+Or add just the MCP skill:
 
-### Server Connection (Universal)
+```sh
+npx skills add https://github.com/replayio/skills --skill 'replay-mcp'
+```
 
-An MCP server able to inspect any recording is at `https://dispatch.replay.io/nut/mcp`. All tools take a recording ID parameter in addition to any other parameters.
+<Callout type="note">
+Other available skills include `replay-cli` (record via CLI), `replay-playwright` (record Playwright tests), and `replay-cypress` (record Cypress tests). These let agents create recordings on your behalf.
+</Callout>
 
-In order to access recordings protected by an API key, use that API key as the value of the `Authorization` header.
+## MCP Server Connection
 
-Examples of launching Claude Code with the MCP servers for any recording:
+Replay provides two connection modes depending on whether you want your agent to work with any recording or a specific one.
+
+### Universal (any recording)
+
+Connect to `https://dispatch.replay.io/nut/mcp`. All tools accept a `recordingId` parameter so the agent can inspect any recording it knows about.
+
+<Tabs labels={["Claude Code", "Cursor / VS Code", "Config file"]}>
+<Tab>
 
 ```sh
 claude --mcp-config '{"mcpServers":{"replay":{"type":"http","url":"https://dispatch.replay.io/nut/mcp"}}}'
 ```
 
-With an API key:
+With an API key for team recordings:
 
 ```sh
 claude --mcp-config '{
@@ -54,35 +78,76 @@ claude --mcp-config '{
       "type": "http",
       "url": "https://dispatch.replay.io/nut/mcp",
       "headers": {
-        "Authorization": API_KEY
+        "Authorization": "YOUR_API_KEY"
       }
     }
   }
 }'
 ```
 
-When launched this way Claude Code will connect to the MCP server and use it to inspect any recordings whose ID it knows. For example:
+</Tab>
+<Tab>
 
-```text
-use the replay MCP server you have access to and debug this test failure in recording <recording-id>:
+Add to your MCP settings (`.cursor/mcp.json` or VS Code MCP config):
 
-Error: Timed out 15000ms waiting for
-      expect(locator).toBeVisible()
-        Locator: getByTestId('products-table-action-edit-00000000-0000-4000-8000-000000000007')
-        Expected: visible
-        Received: <element(s) not found>
+```json
+{
+  "mcpServers": {
+    "replay": {
+      "type": "http",
+      "url": "https://dispatch.replay.io/nut/mcp"
+    }
+  }
+}
 ```
 
-### Server Connection (Per Recording)
+With an API key:
 
-MCP servers specific to particular recordings can be used as well. Tool calls on this server do not need to specify the recording ID, simplifying the interface, but the recording ID needs to be known ahead of time to compute the server URL.
+```json
+{
+  "mcpServers": {
+    "replay": {
+      "type": "http",
+      "url": "https://dispatch.replay.io/nut/mcp",
+      "headers": {
+        "Authorization": "YOUR_API_KEY"
+      }
+    }
+  }
+}
+```
 
-The MCP server for a given recording can be accessed at `https://dispatch.replay.io/nut/recording/<recording-id>/mcp`. When recordings are protected by an API key, use that API key as the value of the `Authorization` header.
+</Tab>
+<Tab>
 
-Examples of launching Claude Code with the MCP servers for specific recordings:
+For any MCP-compatible tool, use this server configuration:
+
+- **URL:** `https://dispatch.replay.io/nut/mcp`
+- **Type:** HTTP (streamable)
+- **Headers:** `Authorization: YOUR_API_KEY` (only for team recordings)
+
+</Tab>
+</Tabs>
+
+Example prompt:
+
+```text
+Use the Replay MCP server to debug this test failure in recording abc123:
+
+Error: Timed out 15000ms waiting for
+  expect(locator).toBeVisible()
+    Locator: getByTestId('submit-button')
+```
+
+### Per Recording
+
+Connect to `https://dispatch.replay.io/nut/recording/<recording-id>/mcp`. Tools don't need a `recordingId` parameter since the recording is already specified in the URL. Simpler interface, but you need to know the recording ID upfront.
+
+<Tabs labels={["Claude Code", "Cursor / VS Code", "Config file"]}>
+<Tab>
 
 ```sh
-claude --mcp-config '{"mcpServers":{"replay":{"type":"http","url":"https://dispatch.replay.io/nut/recording/<recording-id>/mcp"}}}'
+claude --mcp-config '{"mcpServers":{"replay":{"type":"http","url":"https://dispatch.replay.io/nut/recording/RECORDING_ID/mcp"}}}'
 ```
 
 With an API key:
@@ -92,27 +157,65 @@ claude --mcp-config '{
   "mcpServers": {
     "replay": {
       "type": "http",
-      "url": "https://dispatch.replay.io/nut/recording/<recording-id>/mcp",
+      "url": "https://dispatch.replay.io/nut/recording/RECORDING_ID/mcp",
       "headers": {
-        "Authorization": API_KEY
+        "Authorization": "YOUR_API_KEY"
       }
     }
   }
 }'
 ```
 
-When launched this way Claude Code will connect to the MCP server and use it to debug the specific recording according to any instructions you give it. For example:
+</Tab>
+<Tab>
+
+Add to your MCP settings:
+
+```json
+{
+  "mcpServers": {
+    "replay": {
+      "type": "http",
+      "url": "https://dispatch.replay.io/nut/recording/RECORDING_ID/mcp"
+    }
+  }
+}
+```
+
+</Tab>
+<Tab>
+
+- **URL:** `https://dispatch.replay.io/nut/recording/RECORDING_ID/mcp`
+- **Type:** HTTP (streamable)
+- **Headers:** `Authorization: YOUR_API_KEY` (only for team recordings)
+
+</Tab>
+</Tabs>
+
+Example prompt:
 
 ```text
-use the replay MCP server you have access to and debug this test failure:
+Use the Replay MCP server to debug this test failure:
 
 Error: Timed out 15000ms waiting for
-      expect(locator).toBeVisible()
-        Locator: getByTestId('products-table-action-edit-00000000-0000-4000-8000-000000000007')
-        Expected: visible
-        Received: <element(s) not found>
+  expect(locator).toBeVisible()
+    Locator: getByTestId('submit-button')
 ```
 
 ## Tips
 
-Make sure recordings you examine either use development builds or have source maps available to make it easier for the agent to understand what the app's code is doing.
+### Use development builds or source maps
+
+Recordings of minified production code are much harder for agents (and humans) to understand. Use development builds when recording, or ensure source maps are available. This lets agents read meaningful variable names, function names, and original source code.
+
+### Understand execution points
+
+Many MCP tools work with **execution points** — opaque identifiers that represent a specific moment during the recording's execution. Some tools produce execution points (e.g., searching source code, viewing console messages, setting virtual breakpoints), and other tools consume them (e.g., inspecting variables, evaluating expressions, getting call stacks). Think of them as bookmarks to specific moments in time that agents pass between tools.
+
+### Some tools are recording-type specific
+
+React analysis tools only work when the recording contains a React application, and test analysis tools only work with Playwright test recordings. The agent will get an error if it tries to use these on an incompatible recording — but it will recover and try other approaches.
+
+### Start broad, then drill down
+
+A good investigation pattern is to start with broad tools — console output, exception detection, network requests — to get an overview, then use targeted tools like virtual breakpoints and expression evaluation to dig into specific issues. For React apps, the render analysis tools support progressive drill-down from a high-level summary all the way to individual fiber render causes.
