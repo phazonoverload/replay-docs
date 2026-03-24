@@ -63,19 +63,19 @@ export function ThemeSelector(
     <Listbox as="div" value={theme} onChange={setTheme} {...props}>
       <Listbox.Label className="sr-only">Theme</Listbox.Label>
       <Listbox.Button
-        className="flex h-6 w-6 items-center justify-center rounded-lg shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-gray-700 dark:ring-inset dark:ring-white/5"
+        className="flex h-6 w-6 items-center justify-center rounded-lg bg-white shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-gray-800 dark:ring-inset dark:ring-white/10"
         aria-label="Theme"
       >
         <LightIcon
           className={clsx(
             'h-4 w-4 dark:hidden',
-            theme === 'system' ? 'fill-gray-400' : 'fill-sky-400',
+            theme === 'system' ? 'fill-gray-400' : 'fill-primary',
           )}
         />
         <DarkIcon
           className={clsx(
             'hidden h-4 w-4 dark:block',
-            theme === 'system' ? 'fill-gray-400' : 'fill-sky-400',
+            theme === 'system' ? 'fill-gray-400' : 'fill-primary',
           )}
         />
       </Listbox.Button>
@@ -88,7 +88,7 @@ export function ThemeSelector(
               clsx(
                 'flex cursor-pointer select-none items-center rounded-[0.625rem] p-1',
                 {
-                  'text-sky-500': selected,
+                  'text-primary': selected,
                   'text-gray-900 dark:text-white': active && !selected,
                   'text-gray-700 dark:text-gray-400': !active && !selected,
                   'bg-gray-100 dark:bg-gray-900/40': active,
@@ -102,9 +102,7 @@ export function ThemeSelector(
                   <theme.icon
                     className={clsx(
                       'h-4 w-4',
-                      selected
-                        ? 'fill-sky-400 dark:fill-sky-400'
-                        : 'fill-gray-400',
+                      selected ? 'fill-primary' : 'fill-gray-400',
                     )}
                   />
                 </div>

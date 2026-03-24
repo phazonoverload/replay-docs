@@ -133,8 +133,8 @@ export function TableOfContents() {
                       href={`#${section.id}`}
                       className={clsx(
                         isActive(section)
-                          ? 'leading-tight text-sky-500'
-                          : 'font-normal leading-tight text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300',
+                          ? 'font-medium leading-tight text-gray-900 dark:text-white'
+                          : 'font-normal leading-tight text-gray-500 hover:text-gray-800 dark:text-zinc-400 dark:hover:text-zinc-200',
                       )}
                     >
                       {section.title}
@@ -151,8 +151,8 @@ export function TableOfContents() {
                             href={`#${subSection.id}`}
                             className={
                               isActive(subSection)
-                                ? 'text-sky-500'
-                                : 'hover:text-gray-600 dark:hover:text-gray-300'
+                                ? 'font-medium text-gray-900 dark:text-white'
+                                : 'hover:text-gray-800 dark:text-zinc-300 dark:hover:text-zinc-100'
                             }
                           >
                             {subSection.title}

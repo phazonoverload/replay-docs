@@ -10,8 +10,6 @@ import { MobileNavigation } from '@/components/MobileNavigation'
 import { Navigation } from '@/components/Navigation'
 import { Search } from '@/components/Search'
 import { ThemeSelector } from '@/components/ThemeSelector'
-import { useTheme } from 'next-themes'
-import { ReplayLogomark } from './icons/ReplayLogomark'
 
 function GitHubIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -37,7 +35,7 @@ function DiscordIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 function Header() {
   return (
-    <header className="border-b px-12 py-5 shadow-none shadow-gray-900/5 transition duration-500 sm:px-12  sm:py-5 lg:px-12 dark:border-gray-800 dark:bg-gray-900 dark:bg-gray-900/95 dark:shadow-none dark:shadow-gray-900/5 dark:backdrop-blur dark:transition dark:duration-500">
+    <header className="border-b border-gray-200 bg-white px-12 py-5 transition duration-500 dark:border-zinc-800 dark:bg-black sm:px-12 sm:py-5 lg:px-12">
       <div>
         <div className="flex flex-none flex-wrap items-center justify-between">
           <div className="mr-6 flex lg:hidden">
@@ -45,8 +43,8 @@ function Header() {
           </div>
           <div className="relative flex flex-grow basis-0 items-center">
             <Link href="/" aria-label="Home page">
-              <Logomark className="h-7 w-7 fill-black lg:hidden dark:fill-white" />
-              <Logo className="hidden h-6 w-auto fill-black lg:block dark:fill-white" />
+              <Logomark className="h-7 w-7 fill-rose-500 lg:hidden" />
+              <Logo className="hidden h-6 w-auto lg:block" />
             </Link>
           </div>
           <div className="-my-5 mr-6 sm:mr-8 md:mr-0">
@@ -70,7 +68,7 @@ function Header() {
             </Link>
             <Link
               href="https://app.replay.io"
-              className="group hidden rounded-full border-2 border-blue-500 px-4 py-1 text-blue-500 transition-colors hover:bg-blue-500 hover:text-white lg:block"
+              className="group hidden items-center rounded-full border border-gray-900 bg-transparent px-4 py-1.5 text-sm font-medium text-gray-900 transition-colors hover:bg-gray-900 hover:text-white dark:border-zinc-600 dark:text-zinc-100 dark:hover:border-zinc-100 dark:hover:bg-zinc-100 dark:hover:text-zinc-900 lg:inline-flex"
               aria-label="Replay"
             >
               Log in
@@ -100,12 +98,17 @@ function SubheaderNavigationLink({
 
   return (
     <a
-      className="relative flex h-full items-center py-3 text-sm font-medium text-gray-500 dark:text-gray-300"
+      className={clsx(
+        'relative flex h-full items-center py-3 text-sm font-medium transition-colors',
+        isActive
+          ? 'text-gray-900 dark:text-white'
+          : 'text-gray-500 hover:text-gray-800 dark:text-zinc-400 dark:hover:text-zinc-200',
+      )}
       href={href}
     >
       {name}
       {isActive && (
-        <div className="absolute -bottom-px h-1 w-full rounded-full bg-sky-500"></div>
+        <div className="absolute -bottom-px h-0.5 w-full rounded-full bg-gray-900 dark:bg-white" />
       )}
     </a>
   )
@@ -113,7 +116,7 @@ function SubheaderNavigationLink({
 
 function SubheaderNavigation() {
   return (
-    <div className="h-pages-nav border-y border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-900">
+    <div className="h-pages-nav border-b border-gray-200 bg-white dark:border-zinc-800 dark:bg-black">
       <div className="container px-12">
         <nav className="flex h-full items-center gap-4">
           <SubheaderNavigationLink
@@ -139,16 +142,6 @@ function SubheaderNavigation() {
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  let { theme } = useTheme()
-
-  useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-  }, [theme])
-
   useEffect(() => {
     // find spans with the text https://app.replay.io
     const links = document.querySelectorAll('span')
@@ -182,13 +175,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex w-full flex-col">
       <div className="pointer-events-none fixed inset-x-0 top-0 -z-10 flex justify-center overflow-hidden">
-        <div className="flex h-screen w-full flex-none justify-end bg-gradient-to-tr from-white via-white to-pink-500 opacity-5 dark:from-gray-800 dark:via-sky-600 dark:opacity-10"></div>
+        <div className="flex h-screen w-full flex-none justify-end bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100/80 dark:from-zinc-950 dark:via-zinc-950 dark:to-zinc-900/50" />
       </div>
       <div
         className={clsx(
           'sticky top-0 z-20',
           isScrolled
-            ? 'backdrop-blur dark:bg-gray-900/95 [@supports(backdrop-filter:blur(0))]:bg-white/45 dark:[@supports(backdrop-filter:blur(0))]:bg-gray-900/75'
+            ? 'backdrop-blur [@supports(backdrop-filter:blur(0))]:bg-white/90 dark:[@supports(backdrop-filter:blur(0))]:bg-black/90'
             : 'bg-transparent',
         )}
       >
@@ -196,23 +189,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <SubheaderNavigation />
       </div>
 
-      <div className="relative mx-auto flex w-full  flex-auto  sm:px-2 lg:px-8 xl:px-12">
-        <div className="mr-12 hidden lg:relative lg:block lg:flex-none">
-          {
-            <>
-              <div className="absolute inset-y-0 right-0 w-[50vw] border-r border-r-gray-200 dark:hidden" />
-              <div className="absolute bottom-0 right-0 top-16 hidden h-12 w-px bg-gradient-to-t from-gray-800 dark:block" />
-              <div className="absolute bottom-0 right-0 top-28 hidden w-px bg-gray-800 dark:block" />
-              <div className="sticky top-[6rem] -ml-0.5 h-[calc(100vh-6rem)] w-72 overflow-y-auto overflow-x-hidden py-8 pl-0.5 pr-2 xl:pr-2">
-                <Navigation />
-              </div>
-            </>
-          }
+      <div className="relative mx-auto flex min-h-[calc(100vh-7rem)] w-full flex-auto sm:px-2 lg:px-8 xl:px-12">
+        <div className="mr-12 hidden self-stretch border-r border-gray-200 bg-white dark:border-zinc-800 dark:bg-black lg:relative lg:block lg:flex-none">
+          <div className="sticky top-[6rem] h-[calc(100vh-6rem)] w-72 overflow-y-auto overflow-x-hidden py-8 pl-4 pr-3 xl:pr-4">
+            <Navigation />
+          </div>
         </div>
 
         <div
           data-test-id="main-content"
-          className="flex w-full flex-auto grow flex-col items-center justify-center"
+          className="flex w-full min-w-0 flex-auto grow flex-col items-center justify-center bg-gray-50 dark:bg-zinc-950"
         >
           <div className="flex w-full grow flex-row ">{children}</div>
         </div>

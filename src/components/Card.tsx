@@ -8,22 +8,25 @@ export interface CardAttributes {
   href: string
 }
 
+/** Resource card — matches Replay app dashboard (icon tile + title + muted description). */
 export default function Card({ title, content, icon, href }: CardAttributes) {
   return (
-    <Link href={href} className="flex h-full flex-col">
-      <div className="flex h-full max-w-xs flex-col overflow-hidden rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl">
-        <div className="flex h-40 w-full items-center justify-center bg-gradient-to-br from-sky-500 to-pink-300">
-          <div className="flex flex-row items-center justify-center rounded-lg bg-slate-900/90 px-4 py-4">
-            <Icon
-              icon={icon}
-              viewBox={24}
-              className="mx-auto w-8 self-center text-white opacity-95"
-            />
-          </div>
+    <Link href={href} className="group flex h-full min-w-0">
+      <div className="flex h-full w-full gap-4 rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-200 hover:border-gray-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700 dark:hover:bg-zinc-900/80">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gray-100 dark:bg-zinc-800">
+          <Icon
+            icon={icon}
+            viewBox={24}
+            className="h-6 w-6 text-gray-600 dark:text-zinc-400"
+          />
         </div>
-        <div className="grow px-6 py-6 dark:bg-slate-700/50">
-          <div className="text-md mb-1 font-bold">{title}</div>
-          <p className="text-sm text-gray-700 dark:text-gray-300">{content}</p>
+        <div className="min-w-0 flex-1">
+          <div className="font-semibold text-gray-900 dark:text-white">
+            {title}
+          </div>
+          <p className="mt-1 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
+            {content}
+          </p>
         </div>
       </div>
     </Link>

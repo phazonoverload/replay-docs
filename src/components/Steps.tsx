@@ -37,7 +37,7 @@ export function Steps({ children }: { children: React.ReactNode }) {
               sectionIndex + 1 === splitArrayResult.length && 'before:mb-0',
             )}
           >
-            <div className="mr-4 mt-16 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border-[3px] border-sky-500 font-bold text-sky-500 ">
+            <div className="mr-4 mt-16 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border-[3px] border-primary font-bold text-primary ">
               {sectionIndex + 1}
             </div>
             <div className="min-w-0 flex-1">

@@ -36,7 +36,7 @@ export function Figure({
     } ${
       showRadius &&
       !gradient &&
-      'rounded-lg border border-gray-200 p-1 dark:border-slate-600'
+      'rounded-lg border border-gray-200 p-1 dark:border-gray-600'
     }
     }`,
   }

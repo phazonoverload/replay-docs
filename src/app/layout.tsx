@@ -141,7 +141,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="flex min-h-full bg-white dark:bg-gray-900">
+      <body className="flex min-h-full bg-gray-50 text-gray-900 antialiased dark:bg-zinc-950 dark:text-zinc-100">
         <noscript>
           <img
             height="1"
