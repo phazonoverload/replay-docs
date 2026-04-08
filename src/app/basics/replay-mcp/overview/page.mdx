@@ -214,6 +214,15 @@ Error: Timed out 15000ms waiting for
 
 Recordings of minified production code are much harder for agents (and humans) to understand. Use development builds when recording, or ensure source maps are available. This lets agents read meaningful variable names, function names, and original source code.
 
+<Callout type="note">
+  **React 18.3 users:** React analysis tools (render tracking, component
+  inspection, performance profiling) require production sourcemaps for React
+  itself. You'll need to add the `@acemarke/react-prod-sourcemaps` build plugin.
+  See [React Version
+  Support](/reference/integrations/frameworks-libraries/react-sourcemaps) for
+  setup instructions.
+</Callout>
+
 ### Understand execution points
 
 Many MCP tools work with **execution points** — opaque identifiers that represent a specific moment during the recording's execution. Some tools produce execution points (e.g., searching source code, viewing console messages, setting virtual breakpoints), and other tools consume them (e.g., inspecting variables, evaluating expressions, getting call stacks). Think of them as bookmarks to specific moments in time that agents pass between tools.
