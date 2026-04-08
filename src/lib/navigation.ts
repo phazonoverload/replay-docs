@@ -390,6 +390,10 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
               title: 'NextJS',
               href: '/reference/integrations/frameworks-libraries/nextjs',
             },
+            {
+              title: 'React Version Support',
+              href: '/reference/integrations/frameworks-libraries/react-sourcemaps',
+            },
           ],
         },
         {
