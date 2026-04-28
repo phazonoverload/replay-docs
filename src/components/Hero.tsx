@@ -17,12 +17,12 @@ export function Hero() {
                   className="mb-4 w-10"
                 />
               )}
-              <p className="inline font-display text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              <p className="inline font-display text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">
                 Replay documentation
               </p>
-              <p className="mt-3 text-lg font-normal tracking-tight text-gray-600 dark:text-zinc-400">
+              <p className="mt-4 text-lg leading-relaxed text-gray-600 dark:text-zinc-400">
                 Learn to record your first replay, inspect your app with Replay
-                DevTools, and drive your test flakes to zero.{' '}
+                DevTools, and drive your test flakes to zero.
               </p>
               <p className="mt-8">
                 <a

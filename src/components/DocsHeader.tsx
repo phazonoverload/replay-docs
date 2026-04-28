@@ -44,24 +44,22 @@ export function DocsHeader({
   }
 
   return (
-    <header className="space-y-1">
+    <header className="space-y-2">
       <title>{documentTitle}</title>
-      {navigation && (
-        <p className="font-display text-sm font-medium text-gray-500 dark:text-zinc-400">
+      {navigation && section?.title && (
+        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-primary/80 dark:text-primary">
           {section?.title}
         </p>
       )}
       {title && (
-        <h1 className=" pb-4 font-display text-3xl tracking-tight text-gray-900 dark:text-white">
+        <h1 className="pb-2 font-display text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">
           {title}
         </h1>
       )}
       {description && (
-        <>
-          <h2 className="pb-5 text-lg font-light tracking-tight text-gray-900 dark:text-gray-300">
-            {description}
-          </h2>
-        </>
+        <p className="pb-6 text-lg leading-relaxed text-gray-600 dark:text-zinc-400">
+          {description}
+        </p>
       )}
       <div className="relative">
         {badge && <Badge badge={badge} />}
@@ -78,8 +76,8 @@ export function DocsHeader({
         )}
       </div>
       {!image && description ? (
-        <div className="py-4">
-          <hr className="border-gray-200 dark:border-gray-700" />
+        <div className="pb-2 pt-4">
+          <hr className="border-gray-200 dark:border-zinc-800" />
         </div>
       ) : null}
     </header>

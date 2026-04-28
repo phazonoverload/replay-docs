@@ -64,7 +64,7 @@ export function Callout({
       <Link
         href={href}
         className={clsx(
-          'm-0 font-display text-xl font-bold',
+          'm-0 font-display text-base font-semibold tracking-tight',
           styles[type].title,
         )}
       >
@@ -74,7 +74,7 @@ export function Callout({
       title && (
         <p
           className={clsx(
-            'm-0 font-display text-xl font-bold',
+            'm-0 font-display text-base font-semibold tracking-tight',
             styles[type].title,
           )}
         >
@@ -86,14 +86,16 @@ export function Callout({
   return (
     <div
       className={clsx(
-        'callout my-8 flex rounded-3xl p-6',
+        'callout my-8 flex rounded-2xl p-5 sm:p-6',
         styles[type].container,
       )}
     >
-      {showIcon && <IconComponent className="h-8 w-8 flex-none" />}
+      {showIcon && <IconComponent className="h-6 w-6 flex-none" />}
       <div className="ml-4 flex-auto">
         {title && getTitleComponent()}
-        <div className={clsx('prose', styles[type].body)}>{children}</div>
+        <div className={clsx('prose prose-sm max-w-none', styles[type].body)}>
+          {children}
+        </div>
       </div>
     </div>
   )

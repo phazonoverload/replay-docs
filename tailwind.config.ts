@@ -17,8 +17,22 @@ export default {
     extend: {
       ...dashboardExtend,
       fontFamily: {
-        sans: 'var(--font-inter)',
-        display: ['var(--font-lexend)', { fontFeatureSettings: '"ss01"' }],
+        // Match the replay.io marketing site: Inter for both body and display,
+        // with the feature settings that make Inter's "single-storey a", curved
+        // i/l, and disambiguated zero render. This keeps the docs visually
+        // consistent with replay.io while looking sharper than Lexend at the
+        // light weights we use for headings.
+        sans: [
+          'var(--font-inter)',
+          { fontFeatureSettings: '"cv11", "ss01", "ss03"' },
+        ],
+        display: [
+          'var(--font-inter)',
+          { fontFeatureSettings: '"cv11", "ss01", "ss03"' },
+        ],
+        // Lexend kept around for any opt-in usage (and to avoid breaking the
+        // existing local font load), but it is no longer the default display.
+        lexend: 'var(--font-lexend)',
         handdrawn: 'var(--font-virgil)',
       },
       maxWidth: {

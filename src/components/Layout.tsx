@@ -35,7 +35,7 @@ function DiscordIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 function Header() {
   return (
-    <header className="border-b border-gray-200 bg-white px-12 py-5 transition duration-500 dark:border-zinc-800 dark:bg-black sm:px-12 sm:py-5 lg:px-12">
+    <header className="border-b border-gray-200/80 bg-white px-12 py-4 transition duration-500 dark:border-zinc-800/80 dark:bg-black sm:px-12 sm:py-4 lg:px-12">
       <div>
         <div className="flex flex-none flex-wrap items-center justify-between">
           <div className="mr-6 flex lg:hidden">
@@ -99,7 +99,7 @@ function SubheaderNavigationLink({
   return (
     <a
       className={clsx(
-        'relative flex h-full items-center py-3 text-sm font-medium transition-colors',
+        'relative flex h-full items-center px-1 py-3 text-sm font-medium tracking-tight transition-colors',
         isActive
           ? 'text-gray-900 dark:text-white'
           : 'text-gray-500 hover:text-gray-800 dark:text-zinc-400 dark:hover:text-zinc-200',
@@ -108,7 +108,7 @@ function SubheaderNavigationLink({
     >
       {name}
       {isActive && (
-        <div className="absolute -bottom-px h-0.5 w-full rounded-full bg-gray-900 dark:bg-white" />
+        <div className="absolute -bottom-px h-0.5 w-full rounded-full bg-primary" />
       )}
     </a>
   )
@@ -116,9 +116,9 @@ function SubheaderNavigationLink({
 
 function SubheaderNavigation() {
   return (
-    <div className="h-pages-nav border-b border-gray-200 bg-white dark:border-zinc-800 dark:bg-black">
-      <div className="container px-12">
-        <nav className="flex h-full items-center gap-4">
+    <div className="h-pages-nav border-b border-gray-200/80 bg-white dark:border-zinc-800/80 dark:bg-black">
+      <div className="container px-0">
+        <nav className="flex h-full items-center gap-6">
           <SubheaderNavigationLink
             name={'Basics'}
             isDefault={true}
@@ -189,12 +189,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <SubheaderNavigation />
       </div>
 
-      <div className="relative mx-auto flex min-h-[calc(100vh-7rem)] w-full flex-auto sm:px-2 lg:px-8 xl:px-12">
-        <div className="mr-12 hidden self-stretch border-r border-gray-200 bg-white dark:border-zinc-800 dark:bg-black lg:relative lg:block lg:flex-none">
-          <div className="sticky top-[6rem] h-[calc(100vh-6rem)] w-72 overflow-y-auto overflow-x-hidden py-8 pl-4 pr-3 xl:pr-4">
+      <div className="relative flex min-h-[calc(100vh-7rem)] w-full flex-auto">
+        {/* Sidebar — flush against the left edge, wide enough to keep nav
+            items on a single line without wrapping. */}
+        <aside className="hidden self-stretch border-r border-gray-200/80 bg-white dark:border-zinc-800/80 dark:bg-black lg:relative lg:block lg:flex-none">
+          <div className="sticky top-[6rem] h-[calc(100vh-6rem)] w-80 overflow-y-auto overflow-x-hidden px-5 py-8 xl:w-[22rem] xl:px-6">
             <Navigation />
           </div>
-        </div>
+        </aside>
 
         <div
           data-test-id="main-content"

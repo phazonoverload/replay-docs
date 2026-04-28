@@ -121,20 +121,21 @@ export function TableOfContents() {
           <>
             <h2
               id="on-this-page-title"
-              className="font-display text-sm font-medium text-gray-900 dark:text-white"
+              className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-500 dark:text-zinc-400"
             >
               On this page
             </h2>
-            <ol role="list" className="w-42 mt-4 space-y-2 text-sm">
+            <ol role="list" className="mt-4 space-y-2.5 text-[0.85rem]">
               {tableOfContents.map((section) => (
                 <li key={section.id}>
                   <h3>
                     <Link
                       href={`#${section.id}`}
                       className={clsx(
+                        'block leading-snug transition-colors',
                         isActive(section)
-                          ? 'font-medium leading-tight text-gray-900 dark:text-white'
-                          : 'font-normal leading-tight text-gray-500 hover:text-gray-800 dark:text-zinc-400 dark:hover:text-zinc-200',
+                          ? 'font-semibold text-primary'
+                          : 'font-normal text-gray-500 hover:text-gray-900 dark:text-zinc-400 dark:hover:text-zinc-100',
                       )}
                     >
                       {section.title}
@@ -143,17 +144,18 @@ export function TableOfContents() {
                   {section.children.length > 0 && (
                     <ol
                       role="list"
-                      className="mt-2 space-y-1 pl-5 text-gray-500 dark:text-gray-400"
+                      className="mt-2 space-y-1.5 border-l border-gray-200 pl-3 text-gray-500 dark:border-zinc-800 dark:text-zinc-400"
                     >
                       {section.children.map((subSection) => (
                         <li key={subSection.id}>
                           <Link
                             href={`#${subSection.id}`}
-                            className={
+                            className={clsx(
+                              'block leading-snug transition-colors',
                               isActive(subSection)
-                                ? 'font-medium text-gray-900 dark:text-white'
-                                : 'hover:text-gray-800 dark:text-zinc-300 dark:hover:text-zinc-100'
-                            }
+                                ? 'font-medium text-primary'
+                                : 'hover:text-gray-900 dark:hover:text-zinc-100',
+                            )}
                           >
                             {subSection.title}
                           </Link>
