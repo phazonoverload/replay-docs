@@ -109,7 +109,5 @@ export function middleware(request: NextRequest) {
  * filtering happens inside the handler via `isAssetPath`.
  */
 export const config = {
-  matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|images/|videos/).*)',
-  ],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|images/|videos/).*)'],
 }

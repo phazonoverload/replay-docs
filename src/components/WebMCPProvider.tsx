@@ -83,7 +83,8 @@ export function WebMCPProvider() {
           properties: {
             path: {
               type: 'string',
-              description: 'Docs path. One of "/", "/basics", "/learn", "/reference".',
+              description:
+                'Docs path. One of "/", "/basics", "/learn", "/reference".',
             },
           },
           required: ['path'],

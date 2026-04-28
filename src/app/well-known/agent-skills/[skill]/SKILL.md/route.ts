@@ -30,7 +30,13 @@ export async function GET(
   // Source-of-truth lives at `.claude/skills/<name>/SKILL.md`; resolve from
   // process.cwd() (the repo root) rather than `__dirname` so this works the
   // same in dev (next dev) and in the standalone production build.
-  const file = path.join(process.cwd(), '.claude', 'skills', skill.name, 'SKILL.md')
+  const file = path.join(
+    process.cwd(),
+    '.claude',
+    'skills',
+    skill.name,
+    'SKILL.md',
+  )
 
   try {
     const content = await fs.readFile(file, 'utf8')
