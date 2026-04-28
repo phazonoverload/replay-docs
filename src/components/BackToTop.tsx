@@ -1,42 +1,56 @@
 import clsx from 'clsx'
 import React, { useEffect, useState } from 'react'
-import { Icon } from './Icon'
+
+const ArrowUpIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 16 16"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.75"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    {...props}
+  >
+    <path d="M8 12.5V3.5" />
+    <path d="M3.5 8L8 3.5L12.5 8" />
+  </svg>
+)
 
 const BackToTop = () => {
   const [showGoTop, setShowGoTop] = useState(false)
 
-  const handleVisibleButton = () => {
-    setShowGoTop(window.pageYOffset > 50)
-  }
+  useEffect(() => {
+    const handleVisibleButton = () => {
+      setShowGoTop(window.scrollY > 50)
+    }
+    handleVisibleButton()
+    window.addEventListener('scroll', handleVisibleButton, { passive: true })
+    return () => window.removeEventListener('scroll', handleVisibleButton)
+  }, [])
 
   const handleScrollUp = () => {
     window.scrollTo({ left: 0, top: 0, behavior: 'smooth' })
   }
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleVisibleButton)
-  }, [])
-
   return (
-    <>
-      <div
-        className={clsx(
-          showGoTop ? 'opacity-100' : 'opacity-0',
-          'transition-all',
-        )}
+    <div
+      className={clsx(
+        'mt-6 transition-opacity duration-200',
+        showGoTop ? 'opacity-100' : 'pointer-events-none opacity-0',
+      )}
+    >
+      <button
+        type="button"
+        onClick={handleScrollUp}
+        className="group inline-flex items-center gap-2 rounded-lg py-1.5 pl-1.5 pr-3 text-sm font-medium text-gray-700 transition-colors hover:text-gray-900 dark:text-zinc-200 dark:hover:text-white"
       >
-        <hr className="border-px my-4 w-12 border-gray-500 border-opacity-35" />
-        <div
-          className="text-sm font-normal text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
-          onClick={handleScrollUp}
-        >
-          <button className="flex">
-            <Icon icon="arrowup" className="h-7 w-7" />
-            <span>Back to top</span>
-          </button>
-        </div>
-      </div>
-    </>
+        <span className="flex h-7 w-7 items-center justify-center rounded-md bg-gray-100 text-gray-700 transition-colors group-hover:bg-gray-200 group-hover:text-gray-900 dark:bg-zinc-800 dark:text-zinc-200 dark:group-hover:bg-zinc-700 dark:group-hover:text-white">
+          <ArrowUpIcon className="h-3.5 w-3.5" />
+        </span>
+        Back to top
+      </button>
+    </div>
   )
 }
 

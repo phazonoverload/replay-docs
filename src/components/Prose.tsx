@@ -24,8 +24,10 @@ export function Prose<T extends React.ElementType = 'div'>({
         'prose-pre:rounded-xl prose-pre:bg-gray-900 prose-pre:shadow-lg dark:prose-pre:bg-zinc-900 dark:prose-pre:shadow-none dark:prose-pre:ring-1 dark:prose-pre:ring-white/5',
         // hr
         'prose-hr:border-gray-200 dark:prose-hr:border-zinc-800',
-        // max-width
-        'max-w-90vw sm:max-w-none',
+        // Always defer max-width to the parent <article> so wide tokens
+        // (long URLs, oversized <pre>, images) can never push the page
+        // wider than the viewport.
+        'min-w-0 max-w-full',
       )}
       {...props}
     />

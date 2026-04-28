@@ -173,7 +173,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
   }, [])
 
   return (
-    <div className="flex w-full flex-col">
+    // overflow-x-clip prevents any rogue child (negative margins, wide
+    // <pre> blocks, embedded iframes, etc.) from creating a horizontal
+    // scrollbar at the page level.
+    <div className="flex w-full flex-col overflow-x-clip">
       <div className="pointer-events-none fixed inset-x-0 top-0 -z-10 flex justify-center overflow-hidden">
         <div className="flex h-screen w-full flex-none justify-end bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100/80 dark:from-zinc-950 dark:via-zinc-950 dark:to-zinc-900/50" />
       </div>
@@ -189,7 +192,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <SubheaderNavigation />
       </div>
 
-      <div className="relative flex min-h-[calc(100vh-7rem)] w-full flex-auto">
+      {/* Right-side padding gives the table of contents (which uses a small
+          negative right margin) room without re-introducing any padding on
+          the left — the sidebar should stay flush with the viewport edge. */}
+      <div className="relative flex min-h-[calc(100vh-7rem)] w-full flex-auto pr-0 lg:pr-8 xl:pr-12">
         {/* Sidebar — flush against the left edge, wide enough to keep nav
             items on a single line without wrapping. */}
         <aside className="hidden self-stretch border-r border-gray-200/80 bg-white dark:border-zinc-800/80 dark:bg-black lg:relative lg:block lg:flex-none">
@@ -202,7 +208,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           data-test-id="main-content"
           className="flex w-full min-w-0 flex-auto grow flex-col items-center justify-center bg-gray-50 dark:bg-zinc-950"
         >
-          <div className="flex w-full grow flex-row ">{children}</div>
+          <div className="flex w-full min-w-0 grow flex-row">{children}</div>
         </div>
       </div>
     </div>

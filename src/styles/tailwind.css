@@ -210,3 +210,17 @@
 img[style*='background-image'] {
   background-size: contain !important;
 }
+
+/* Long code lines should scroll *inside* the code block, not push the
+ * surrounding layout wider than the viewport. */
+.prose pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.prose img,
+.prose video,
+.prose iframe {
+  max-width: 100%;
+  height: auto;
+}
