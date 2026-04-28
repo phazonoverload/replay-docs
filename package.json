@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "agent-skills": "node scripts/generate-agent-skills.mjs",
+    "prebuild": "npm run agent-skills",
+    "predev": "npm run agent-skills",
     "build": "next build",
     "dev": "next dev & npm run sync -- -w",
     "links": "./scripts/checkLinks.sh",
