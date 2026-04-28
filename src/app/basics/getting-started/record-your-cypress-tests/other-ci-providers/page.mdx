@@ -1,7 +1,14 @@
 ---
 title: Other CI providers
-description: Replay works with any CI provider. You can simply record your tests by passing Replay Browser to your Cypress run and then add a step to upload your recordings to Replay App.
+description: Best-effort guidance for recording Cypress tests on CI providers other than GitHub Actions.
 ---
+
+<Callout type="warning" title="Other CI providers are not officially supported">
+Replay's first-party CI integration is GitHub Actions. The steps below will record your tests and upload recordings to the [Replay dashboard](/basics/test-suites/recent-runs), but features that depend on the Replay GitHub bot — most notably **PR comments** and check-run integrations — only work on GitHub. We do not currently plan to add first-party support for other providers.
+
+If you need PR comments, use the [GitHub Actions guide](/basics/getting-started/record-your-cypress-tests/github-actions) instead. Otherwise, treat this page as best-effort guidance: the same three pieces (install Replay Chromium, expose `REPLAY_API_KEY`, run with the Replay browser) translate to any CI YAML/TOML — start from the GitHub Actions setup and adapt the syntax.
+
+</Callout>
 
 Create another test script in `package.json` for running tests with Replay, and replace your current test script in your CI workflow file:
 

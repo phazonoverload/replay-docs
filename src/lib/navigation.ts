@@ -26,10 +26,74 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
         {
           title: 'Record your Cypress.io test',
           href: '/basics/getting-started/record-your-cypress-tests',
+          links: [
+            {
+              title: 'Overview',
+              href: '/basics/getting-started/record-your-cypress-tests',
+            },
+            {
+              title: 'Debugging tests',
+              href: '/basics/getting-started/record-your-cypress-tests/debugging-tests',
+            },
+            {
+              title: 'GitHub actions',
+              href: '/basics/getting-started/record-your-cypress-tests/github-actions',
+            },
+            {
+              title: 'Other CI providers',
+              href: '/basics/getting-started/record-your-cypress-tests/other-ci-providers',
+            },
+            {
+              title: 'Dashboard',
+              href: '/basics/getting-started/record-your-cypress-tests/dashboard',
+            },
+            {
+              title: 'Troubleshooting',
+              href: '/basics/getting-started/record-your-cypress-tests/troubleshooting-guide',
+            },
+            {
+              title: 'FAQ',
+              href: '/basics/getting-started/record-your-cypress-tests/faq',
+            },
+          ],
         },
         {
           title: 'Record your Playwright test',
           href: '/basics/getting-started/record-your-playwright-tests',
+          links: [
+            {
+              title: 'Overview',
+              href: '/basics/getting-started/record-your-playwright-tests',
+            },
+            {
+              title: 'Recording Playwright core',
+              href: '/basics/getting-started/record-your-playwright-tests/playwright-core',
+            },
+            {
+              title: 'Debugging tests',
+              href: '/basics/getting-started/record-your-playwright-tests/debugging-tests',
+            },
+            {
+              title: 'GitHub actions',
+              href: '/basics/getting-started/record-your-playwright-tests/github-actions',
+            },
+            {
+              title: 'Other CI providers',
+              href: '/basics/getting-started/record-your-playwright-tests/other-ci-providers',
+            },
+            {
+              title: 'Writing new tests',
+              href: '/basics/getting-started/record-your-playwright-tests/writing-new-tests',
+            },
+            {
+              title: 'Troubleshooting',
+              href: '/basics/getting-started/record-your-playwright-tests/troubleshooting',
+            },
+            {
+              title: 'FAQ',
+              href: '/basics/getting-started/record-your-playwright-tests/faq',
+            },
+          ],
         },
       ],
     },
@@ -227,70 +291,6 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
       defaultOpen: true,
       links: [
         { title: 'Overview', href: '/reference/test-runners/overview' },
-        {
-          title: 'Cypress.io',
-          href: '/reference/test-runners/cypress-io/overview',
-          links: [
-            {
-              title: 'Overview',
-              href: '/reference/test-runners/cypress-io/overview',
-            },
-            {
-              title: 'Debugging tests',
-              href: '/reference/test-runners/cypress-io/debugging-tests',
-            },
-            {
-              title: 'GitHub actions',
-              href: '/reference/test-runners/cypress-io/github-actions',
-            },
-            {
-              title: 'Other CI providers',
-              href: '/reference/test-runners/cypress-io/other-ci-providers',
-            },
-            {
-              title: 'FAQ',
-              href: '/reference/test-runners/cypress-io/faq',
-            },
-          ],
-        },
-        {
-          title: 'Playwright',
-          href: '/reference/test-runners/playwright/overview',
-          links: [
-            {
-              title: 'Overview',
-              href: '/reference/test-runners/playwright/overview',
-            },
-            {
-              title: 'Recording Playwright core',
-              href: '/reference/test-runners/playwright/playwright-core',
-            },
-            {
-              title: 'Debugging tests',
-              href: '/reference/test-runners/playwright/debugging-tests',
-            },
-            {
-              title: 'GitHub actions',
-              href: '/reference/test-runners/playwright/github-actions',
-            },
-            {
-              title: 'Other CI providers',
-              href: '/reference/test-runners/playwright/other-ci-providers',
-            },
-            {
-              title: 'Writing new tests',
-              href: '/reference/test-runners/playwright/writing-new-tests',
-            },
-            {
-              title: 'Troubleshooting',
-              href: '/reference/test-runners/playwright/troubleshooting',
-            },
-            {
-              title: 'FAQ',
-              href: '/reference/test-runners/playwright/faq',
-            },
-          ],
-        },
         { title: 'Selenium', href: '/reference/test-runners/selenium' },
         {
           title: 'WebdriverIO',

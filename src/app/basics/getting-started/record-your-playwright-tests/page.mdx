@@ -99,8 +99,15 @@ set REPLAY_API_KEY=<your_api_key>
 
 ## Update playwright.config.js
 
-```js fileName="playwright.config.ts" highlight=["2-5", "10-13","16-21"] lineNumbers=true
-import { PlaywrightTestConfig, devices } from "@playwright/test";
+Replay needs two pieces of configuration in `playwright.config.ts`:
+
+- A **`replay-chromium` project** tells Playwright to run tests with the Replay browser.
+- A **`replayReporter`** entry captures test metadata and uploads recordings to your dashboard.
+
+You need both for the standard recording flow.
+
+```js fileName="playwright.config.ts" highlight=["2-5", "10-13", "17-20"] lineNumbers=true
+import { PlaywrightTestConfig } from "@playwright/test";
 import {
   devices as replayDevices,
   replayReporter
@@ -127,14 +134,14 @@ export default config;
 
 ## Record your test
 
-With everything set up, you can now run `playwright test` to record and upload your first Playwright replays.
+Run Playwright with the Replay project. Recordings upload automatically when the run finishes:
 
 ```sh
 npx playwright test --project replay-chromium
 ```
 
 ```sh
-➜ npx playwright test
+➜ npx playwright test --project replay-chromium
 
 Running 1 test using 1 worker
 [1/1] things-app.spec.ts:14:7 › Todos › should allow me to add todo items
@@ -146,13 +153,55 @@ Running 1 test using 1 worker
   1 passed (2.1s)
 ```
 
+Open your [Test Suite Dashboard](https://app.replay.io) to confirm the recording appears.
+
 > [Check out this replay](https://replay.help/playwright-flake-debug) for a detailed walkthrough on debugging a flaky Playwright test.
 
 </Steps>
 
+## Adding Replay to an existing Playwright project
+
+If you already have a `playwright.config.ts`, merge Replay in instead of overwriting it:
+
+- **Reporters** — Append `replayReporter(...)` to your existing `reporter` array. Leave `html`, `github`, `line`, etc. in place.
+- **Projects** — Add the `replay-chromium` project alongside existing ones. If you do not need a non-Replay run locally, you can keep `replay-chromium` as the only project and remove a duplicate stock Chromium project to avoid running both browsers.
+- **Always pass `--project replay-chromium`** when you want Replay to record. Without `--project`, Playwright runs every project in the config—including non-Replay ones, which will not produce recordings.
+
+## Troubleshooting
+
+If something does not look right, work through these in order:
+
+1. **No recording uploaded** — Confirm `REPLAY_API_KEY` is set in the shell that runs Playwright (`echo $REPLAY_API_KEY`) and that the run actually used `--project replay-chromium`.
+2. **`replayReporter` warns "None of the configured projects ran using Replay Chromium"** — You ran a different project. Re-run with `--project replay-chromium`.
+3. **Browser fails to launch** — Re-run `npx replayio install` and verify the install succeeded. The Replay browser is separate from Playwright's bundled Chromium.
+4. **The reporter is wired up but recordings still do not appear** — Check that `replayReporter` is **before** other reporters that may swallow output (for example, Playwright's `line` reporter trims the last log line; keep `replayReporter` first in the array).
+5. **Errors that look like they come from your app (404s, missing assets, dev-server warnings)** — These usually indicate an application-side problem, not a Replay issue. Run the same test once with stock Chromium to confirm.
+
 ## Record your test suite in CI
 
-Now that you're ready to inspect your local tests, the next step is to record your tests in CI. Learn how to set up Replay with your Playwright tests on [GitHub Actions](/reference/test-runners/playwright/github-actions) and [other CI providers](/reference/test-runners/playwright/other-ci-providers).
+GitHub Actions is the documented CI path. The minimal workflow installs dependencies, installs the Replay browser, then runs Playwright with `REPLAY_API_KEY` set:
+
+```yml fileName=".github/workflows/e2e.yml"
+name: End-to-end tests
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - name: Install Replay Chromium
+        run: npx replayio install
+      - name: Run Playwright tests
+        run: npx playwright test --project replay-chromium
+        env:
+          REPLAY_API_KEY: ${{ secrets.REPLAY_API_KEY }}
+```
+
+Add `REPLAY_API_KEY` to your repository secrets. For deeper CI guidance—including how to merge Replay into an existing workflow and how to control which recordings upload—see the [GitHub Actions reference](/basics/getting-started/record-your-playwright-tests/github-actions). Other CI providers follow the same pattern; see [other CI providers](/basics/getting-started/record-your-playwright-tests/other-ci-providers). To tune what gets uploaded (failed-only, branch-based, deduplicated), see [Upload strategies](/reference/ci-workflows/upload-strategies).
 
 <QuickLinks title="Read more" description="Learn how to record your tests, manage your test suite and debug flaky tests using Replay DevTools">
 
@@ -162,7 +211,7 @@ title="Record Your CI Test Run"
 
 icon="build"
 
-href="/reference/test-runners/playwright/github-actions"
+href="/basics/getting-started/record-your-playwright-tests/github-actions"
 
 description="Learn how to integrate Replay into your Continuous integration service"
 
@@ -198,7 +247,7 @@ title="Debugging tips"
 
 icon="debuggingtests"
 
-href="/reference/test-runners/playwright/debugging-tests"
+href="/basics/getting-started/record-your-playwright-tests/debugging-tests"
 
 description="Learn about how to effectively debug flaky or failing tests"
 
