@@ -17,27 +17,27 @@ A working setup needs three things:
 ### `cypress.config.js`
 
 ```js fileName="cypress.config.js" lineNumbers=true highlight=[2,"7-10"]
-const { defineConfig } = require("cypress");
-const { plugin: replayPlugin, wrapOn } = require("@replayio/cypress");
+const { defineConfig } = require('cypress')
+const { plugin: replayPlugin, wrapOn } = require('@replayio/cypress')
 
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(cyOn, config) {
-      const on = wrapOn(cyOn);
+      const on = wrapOn(cyOn)
       replayPlugin(on, config, {
         apiKey: process.env.REPLAY_API_KEY,
         upload: true,
-      });
-      return config;
+      })
+      return config
     },
   },
-});
+})
 ```
 
 Make sure `cypress/support/e2e.js` imports the Replay support module so Cypress commands appear in the Replay DevTools timeline:
 
 ```js fileName="cypress/support/e2e.js"
-require("@replayio/cypress/support");
+require('@replayio/cypress/support')
 ```
 
 ### `.github/workflows/e2e.yml`
@@ -91,23 +91,23 @@ For full coverage of upload options, see [Upload strategies](/reference/ci-workf
 ### Upload only failed tests
 
 ```js fileName="cypress.config.js" lineNumbers=true highlight=["8-10"]
-const { defineConfig } = require("cypress");
-const { plugin: replayPlugin, wrapOn } = require("@replayio/cypress");
+const { defineConfig } = require('cypress')
+const { plugin: replayPlugin, wrapOn } = require('@replayio/cypress')
 
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(cyOn, config) {
-      const on = wrapOn(cyOn);
+      const on = wrapOn(cyOn)
       replayPlugin(on, config, {
         apiKey: process.env.REPLAY_API_KEY,
         upload: {
-          statusThreshold: "failed",
+          statusThreshold: 'failed',
         },
-      });
-      return config;
+      })
+      return config
     },
   },
-});
+})
 ```
 
 The workflow YAML stays identical to **Simple setup** above.
