@@ -52,7 +52,7 @@ export function WebMCPProvider() {
       {
         name: 'replay_docs.list_skills',
         description:
-          'List the Agent Skills published by docs.replay.io (CLI, Cypress, ' +
+          'List the Agent Skills published by docs.replay.io (CLI, ' +
           'Playwright, MCP). Returns the agent-skills index JSON.',
         inputSchema: { type: 'object', properties: {}, required: [] },
         execute: () => fetchJson('/.well-known/agent-skills/index.json'),

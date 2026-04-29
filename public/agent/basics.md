@@ -8,7 +8,6 @@ debugging with Replay.
 ## Getting Started
 
 - [How to record](https://docs.replay.io/basics/getting-started/record-your-app)
-- [Record your Cypress tests](https://docs.replay.io/basics/getting-started/record-your-cypress-tests)
 - [Record your Playwright tests](https://docs.replay.io/basics/getting-started/record-your-playwright-tests)
 
 ## Time Travel

@@ -10,8 +10,7 @@ platform.
 Replay's first-party test-runner integrations:
 
 - [Overview](https://docs.replay.io/reference/test-runners/overview)
-- [Cypress](https://docs.replay.io/reference/test-runners/cypress)
-- [Playwright](https://docs.replay.io/reference/test-runners/playwright)
+- [Playwright](https://docs.replay.io/basics/getting-started/record-your-playwright-tests)
 - [GitHub Actions setup (Playwright)](https://docs.replay.io/reference/test-runners/playwright/github-actions)
 
 ## Integrations / APIs

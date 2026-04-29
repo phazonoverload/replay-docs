@@ -61,40 +61,6 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
             },
           ],
         },
-        {
-          title: 'Record your Cypress.io test',
-          href: '/basics/getting-started/record-your-cypress-tests',
-          links: [
-            {
-              title: 'Overview',
-              href: '/basics/getting-started/record-your-cypress-tests',
-            },
-            {
-              title: 'Debugging tests',
-              href: '/basics/getting-started/record-your-cypress-tests/debugging-tests',
-            },
-            {
-              title: 'GitHub actions',
-              href: '/basics/getting-started/record-your-cypress-tests/github-actions',
-            },
-            {
-              title: 'Other CI providers',
-              href: '/basics/getting-started/record-your-cypress-tests/other-ci-providers',
-            },
-            {
-              title: 'Dashboard',
-              href: '/basics/getting-started/record-your-cypress-tests/dashboard',
-            },
-            {
-              title: 'Troubleshooting',
-              href: '/basics/getting-started/record-your-cypress-tests/troubleshooting-guide',
-            },
-            {
-              title: 'FAQ',
-              href: '/basics/getting-started/record-your-cypress-tests/faq',
-            },
-          ],
-        },
       ],
     },
     {
@@ -196,10 +162,6 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
             {
               title: 'Redux Panel',
               href: '/basics/replay-devtools/framework-devtools/redux-panel',
-            },
-            {
-              title: 'Cypress Timeline',
-              href: '/basics/replay-devtools/framework-devtools/cypress-timeline',
             },
             {
               title: 'Playwright Timeline',
@@ -455,10 +417,6 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
           href: '/learn/examples/playwright',
         },
         {
-          title: 'Cypress.io',
-          href: '/learn/examples/cypress-io',
-        },
-        {
           title: 'Next.js',
           href: '/learn/examples/nextjs',
         },
@@ -476,10 +434,6 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
         {
           title: 'Playwright',
           href: '/learn/comparisons/playwright',
-        },
-        {
-          title: 'Cypress',
-          href: '/learn/comparisons/cypress',
         },
         {
           title: `Chrome Recorder`,

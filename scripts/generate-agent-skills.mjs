@@ -10,6 +10,9 @@
  * Run via `pnpm prebuild` or `pnpm agent-skills`. `src/generated/agent-skills.json`
  * is committed (see .gitignore) so bare `next build` / CI linters still resolve it;
  * regenerate and commit after editing any SKILL.md.
+ *
+ * The `OMIT_FROM_AGENT_SKILLS_INDEX` set drops skills from the public index
+ * while keeping `.claude/skills` sources in the repo (e.g. replay-cypress).
  */
 
 import { createHash } from 'node:crypto'
@@ -29,6 +32,9 @@ const ROOT = resolve(__dirname, '..')
 const SKILLS_DIR = join(ROOT, '.claude', 'skills')
 const OUT_DIR = join(ROOT, 'src', 'generated')
 const OUT_FILE = join(OUT_DIR, 'agent-skills.json')
+
+/** Kept out of /.well-known/agent-skills until we surface Cypress again. */
+const OMIT_FROM_AGENT_SKILLS_INDEX = new Set(['replay-cypress'])
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -61,6 +67,7 @@ function discoverSkills() {
     const meta = parseFrontmatter(content)
     const sha = createHash('sha256').update(content).digest('hex')
     const name = meta.name || entry
+    if (OMIT_FROM_AGENT_SKILLS_INDEX.has(name)) continue
     skills.push({
       name,
       type: 'agent-skill',

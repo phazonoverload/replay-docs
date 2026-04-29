@@ -24,12 +24,11 @@ export function Hero() {
                 CI &amp; agents first
               </p>
               <p className="mt-4 text-lg leading-relaxed text-gray-600 dark:text-zinc-400">
-                Record Playwright and Cypress runs in CI, close the loop on
-                failures from the PR, and give your coding agent full runtime
-                context through Replay MCP. Everything here is built on the same
-                deterministic, time-travel recordings that power Replay
-                DevTools—we are doubling down on agentic workflows and less
-                manual digging.
+                Record Playwright runs in CI, close the loop on failures from
+                the PR, and give your coding agent full runtime context through
+                Replay MCP. Everything here is built on the same deterministic,
+                time-travel recordings that power Replay DevTools—we are
+                doubling down on agentic workflows and less manual digging.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a

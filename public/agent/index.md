@@ -6,17 +6,17 @@ Replay is the first deterministic browser. Once a bug or flaky test is captured,
 anyone can inspect it with browser DevTools without having to reproduce it
 locally.
 
-The docs homepage prioritizes **CI/CD** (Playwright and Cypress in GitHub
-Actions and other providers), **Replay MCP** (agents inspecting recordings),
-and the **Chrome extension**, in that order. Time-travel **DevTools** remain
-the inspection layer for any recording—they are not the primary narrative.
+The docs homepage prioritizes **CI/CD** (Playwright in GitHub Actions and other
+providers), **Replay MCP** (agents inspecting recordings), and the **Chrome
+extension**, in that order. Time-travel **DevTools** remain the inspection layer
+for any recording—they are not the primary narrative.
 
 This documentation site is the canonical reference for using Replay. The
 top-level sections are:
 
 - [Basics](https://docs.replay.io/basics) — getting started, recording your
-  app, recording test suites (Cypress, Playwright), time-travel debugging,
-  Replay DevTools, and the Test Suite Dashboard.
+  app, recording Playwright test suites, time-travel debugging, Replay
+  DevTools, and the Test Suite Dashboard.
 - [Learn](https://docs.replay.io/learn) — guided tutorials, framework-specific
   examples, and conceptual deep-dives on how Replay works.
 - [Reference](https://docs.replay.io/reference) — exhaustive reference for the
@@ -27,7 +27,7 @@ top-level sections are:
 - `/.well-known/api-catalog` — RFC 9727 catalog of Replay APIs (linkset+json)
 - `/.well-known/mcp/server-card.json` — Replay MCP server card
 - `/.well-known/agent-skills/index.json` — Replay agent skills (Replay CLI,
-  Cypress, Playwright, MCP)
+  Playwright, MCP)
 - `/.well-known/openid-configuration` — OAuth/OIDC discovery for the Replay
   authentication tenant
 - `/sitemap.xml` — full URL inventory

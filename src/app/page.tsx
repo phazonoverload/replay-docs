@@ -3,7 +3,7 @@ import MiniCard from '@/components/MiniCard'
 import { Hero } from '@/components/Hero'
 import Link from 'next/link'
 
-/** Primary paths: CI/CD (Playwright, Cypress, GitHub, dashboards), then MCP, then Chrome. */
+/** Primary paths: CI/CD (Playwright, GitHub, dashboards), then MCP, then Chrome. */
 const cards: CardAttributes[] = [
   {
     icon: 'playwrightsimple',
@@ -11,13 +11,6 @@ const cards: CardAttributes[] = [
     content:
       'Run tests in Replay Browser and upload recordings from GitHub Actions—or wire up other CI providers.',
     href: '/basics/getting-started/record-your-playwright-tests/github-actions',
-  },
-  {
-    icon: 'cypresssimple',
-    title: 'Cypress in CI',
-    content:
-      'Same story for Cypress: record failures in CI, debug flakiness without endless re-runs.',
-    href: '/basics/getting-started/record-your-cypress-tests/github-actions',
   },
   {
     icon: 'analytics',
@@ -55,12 +48,6 @@ const miniCards: CardAttributes[] = [
     title: 'Playwright guide',
     content: 'Full setup: Replay browser, reporter, debugging, and FAQs.',
     href: '/basics/getting-started/record-your-playwright-tests',
-  },
-  {
-    icon: 'cypresssimple',
-    title: 'Cypress guide',
-    content: 'Install the plugin, record runs, and troubleshoot common issues.',
-    href: '/basics/getting-started/record-your-cypress-tests',
   },
   {
     icon: 'pullrequest',

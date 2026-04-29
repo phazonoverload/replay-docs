@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/cloudflare/agent-skills-discovery-rfc/main/schema/index.schema.json",
   "version": "0.2.0",
   "site": "https://docs.replay.io",
-  "generatedAt": "2026-04-29T15:15:03.912Z",
+  "generatedAt": "2026-04-29T15:38:41.736Z",
   "skills": [
     {
       "name": "replay-cli",
@@ -10,13 +10,6 @@
       "description": "Record your application to gather performance data and debug issues. It enables users to install Replay ClI, record a session, upload and manage them.",
       "url": "https://docs.replay.io/.well-known/agent-skills/replay-cli/SKILL.md",
       "sha256": "89482e0c885004719a841cc71ae60a2a58a2a20220be92c03e7df8f4de69da3a"
-    },
-    {
-      "name": "replay-cypress",
-      "type": "agent-skill",
-      "description": "Set up and configure Replay for recording Cypress tests with time-travel debugging.",
-      "url": "https://docs.replay.io/.well-known/agent-skills/replay-cypress/SKILL.md",
-      "sha256": "09dbd4d13d28ecc7f09b8cdf07f0815088d7c22494c6c8e3b6a4c848424bde23"
     },
     {
       "name": "replay-mcp",
