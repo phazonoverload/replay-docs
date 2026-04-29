@@ -24,40 +24,6 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
           href: '/basics/getting-started/record-your-app',
         },
         {
-          title: 'Record your Cypress.io test',
-          href: '/basics/getting-started/record-your-cypress-tests',
-          links: [
-            {
-              title: 'Overview',
-              href: '/basics/getting-started/record-your-cypress-tests',
-            },
-            {
-              title: 'Debugging tests',
-              href: '/basics/getting-started/record-your-cypress-tests/debugging-tests',
-            },
-            {
-              title: 'GitHub actions',
-              href: '/basics/getting-started/record-your-cypress-tests/github-actions',
-            },
-            {
-              title: 'Other CI providers',
-              href: '/basics/getting-started/record-your-cypress-tests/other-ci-providers',
-            },
-            {
-              title: 'Dashboard',
-              href: '/basics/getting-started/record-your-cypress-tests/dashboard',
-            },
-            {
-              title: 'Troubleshooting',
-              href: '/basics/getting-started/record-your-cypress-tests/troubleshooting-guide',
-            },
-            {
-              title: 'FAQ',
-              href: '/basics/getting-started/record-your-cypress-tests/faq',
-            },
-          ],
-        },
-        {
           title: 'Record your Playwright test',
           href: '/basics/getting-started/record-your-playwright-tests',
           links: [
@@ -95,20 +61,92 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
             },
           ],
         },
+        {
+          title: 'Record your Cypress.io test',
+          href: '/basics/getting-started/record-your-cypress-tests',
+          links: [
+            {
+              title: 'Overview',
+              href: '/basics/getting-started/record-your-cypress-tests',
+            },
+            {
+              title: 'Debugging tests',
+              href: '/basics/getting-started/record-your-cypress-tests/debugging-tests',
+            },
+            {
+              title: 'GitHub actions',
+              href: '/basics/getting-started/record-your-cypress-tests/github-actions',
+            },
+            {
+              title: 'Other CI providers',
+              href: '/basics/getting-started/record-your-cypress-tests/other-ci-providers',
+            },
+            {
+              title: 'Dashboard',
+              href: '/basics/getting-started/record-your-cypress-tests/dashboard',
+            },
+            {
+              title: 'Troubleshooting',
+              href: '/basics/getting-started/record-your-cypress-tests/troubleshooting-guide',
+            },
+            {
+              title: 'FAQ',
+              href: '/basics/getting-started/record-your-cypress-tests/faq',
+            },
+          ],
+        },
       ],
     },
     {
-      title: 'Time Travel',
-      icon: 'rocket',
+      title: 'Replay MCP',
+      icon: 'mcp',
       defaultOpen: true,
       links: [
         {
-          title: 'Why time travel?',
-          href: '/basics/time-travel/why-time-travel',
+          title: 'Overview',
+          href: '/basics/replay-mcp/overview',
         },
         {
-          title: 'How does time travel work?',
-          href: '/basics/time-travel/how-does-time-travel-work',
+          title: 'Quickstart',
+          href: '/basics/replay-mcp/quickstart',
+        },
+        {
+          title: 'Tools Reference',
+          href: '/basics/replay-mcp/tools',
+        },
+      ],
+    },
+    {
+      title: 'Replay Chrome Extension',
+      icon: 'replaychrome',
+      defaultOpen: true,
+      links: [
+        {
+          title: 'Getting Started',
+          href: '/basics/replay-chrome-extension/getting-started',
+        },
+      ],
+    },
+    {
+      title: 'Test Suite Dashboard',
+      icon: 'analytics',
+      defaultOpen: true,
+      links: [
+        {
+          title: 'Overview',
+          href: '/basics/test-suites/overview',
+        },
+        {
+          title: 'Recent runs',
+          href: '/basics/test-suites/recent-runs',
+        },
+        {
+          title: 'Top Failing And Flaky Tests',
+          href: '/basics/test-suites/top-failing-and-flaky-tests',
+        },
+        {
+          title: 'PR Comments',
+          href: '/basics/test-suites/pr-comments',
         },
       ],
     },
@@ -203,55 +241,17 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
       ],
     },
     {
-      title: 'Replay Chrome Extension',
-      icon: 'replaychrome',
+      title: 'Time Travel',
+      icon: 'rocket',
       defaultOpen: true,
       links: [
         {
-          title: 'Getting Started',
-          href: '/basics/replay-chrome-extension/getting-started',
-        },
-      ],
-    },
-    {
-      title: 'Replay MCP',
-      icon: 'mcp',
-      defaultOpen: true,
-      links: [
-        {
-          title: 'Overview',
-          href: '/basics/replay-mcp/overview',
+          title: 'Why time travel?',
+          href: '/basics/time-travel/why-time-travel',
         },
         {
-          title: 'Quickstart',
-          href: '/basics/replay-mcp/quickstart',
-        },
-        {
-          title: 'Tools Reference',
-          href: '/basics/replay-mcp/tools',
-        },
-      ],
-    },
-    {
-      title: 'Test Suite Dashboard',
-      icon: 'analytics',
-      defaultOpen: true,
-      links: [
-        {
-          title: 'Overview',
-          href: '/basics/test-suites/overview',
-        },
-        {
-          title: 'Recent runs',
-          href: '/basics/test-suites/recent-runs',
-        },
-        {
-          title: 'Top Failing And Flaky Tests',
-          href: '/basics/test-suites/top-failing-and-flaky-tests',
-        },
-        {
-          title: 'PR Comments',
-          href: '/basics/test-suites/pr-comments',
+          title: 'How does time travel work?',
+          href: '/basics/time-travel/how-does-time-travel-work',
         },
       ],
     },

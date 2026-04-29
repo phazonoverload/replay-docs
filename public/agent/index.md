@@ -6,6 +6,11 @@ Replay is the first deterministic browser. Once a bug or flaky test is captured,
 anyone can inspect it with browser DevTools without having to reproduce it
 locally.
 
+The docs homepage prioritizes **CI/CD** (Playwright and Cypress in GitHub
+Actions and other providers), **Replay MCP** (agents inspecting recordings),
+and the **Chrome extension**, in that order. Time-travel **DevTools** remain
+the inspection layer for any recording—they are not the primary narrative.
+
 This documentation site is the canonical reference for using Replay. The
 top-level sections are:
 
