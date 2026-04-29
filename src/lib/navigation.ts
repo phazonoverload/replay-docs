@@ -44,6 +44,10 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
               href: '/basics/getting-started/record-your-playwright-tests/github-actions',
             },
             {
+              title: 'PR Comments',
+              href: '/basics/test-suites/pr-comments',
+            },
+            {
               title: 'Other CI providers',
               href: '/basics/getting-started/record-your-playwright-tests/other-ci-providers',
             },
@@ -109,10 +113,6 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
         {
           title: 'Top Failing And Flaky Tests',
           href: '/basics/test-suites/top-failing-and-flaky-tests',
-        },
-        {
-          title: 'PR Comments',
-          href: '/basics/test-suites/pr-comments',
         },
       ],
     },
