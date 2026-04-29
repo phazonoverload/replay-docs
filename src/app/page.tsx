@@ -71,7 +71,8 @@ const miniCards: CardAttributes[] = [
   {
     icon: 'analytics',
     title: 'Top failing & flaky tests',
-    content: 'Prioritize what breaks most often so agents and humans fix the right things.',
+    content:
+      'Prioritize what breaks most often so agents and humans fix the right things.',
     href: '/basics/test-suites/top-failing-and-flaky-tests',
   },
   {

@@ -7,8 +7,9 @@
  * `src/generated/agent-skills.json`. The /.well-known/agent-skills/index.json
  * route handler imports that file and serves it.
  *
- * Run via `pnpm prebuild` (wired in package.json) so the generated file is
- * always up-to-date in CI and local builds.
+ * Run via `pnpm prebuild` or `pnpm agent-skills`. `src/generated/agent-skills.json`
+ * is committed (see .gitignore) so bare `next build` / CI linters still resolve it;
+ * regenerate and commit after editing any SKILL.md.
  */
 
 import { createHash } from 'node:crypto'
