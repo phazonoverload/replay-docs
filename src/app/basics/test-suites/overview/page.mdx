@@ -8,19 +8,13 @@ description: Capture flakes in CI. Investigate failures with browser DevTools. A
 
 You can use Replay for your test suite is a drop-in replacement for the browser you currently use when running your end-to-end tests. By doing so, your tests can be debugged using [Replay's time travel.](/basics/time-travel/why-time-travel)
 
-Whether you use Playwright, Cypress, or other test runners, you simply swap your current browser with **Replay Browser** and that’s it:
+Whether you use Playwright or other test runners, you simply swap your current browser with **Replay Browser** and that’s it:
 
 <Icon icon="playwright" className="mb-1 mr-1 inline-block h-5 w-6" />
 Playwright:
 
 ```sh
 npx playwright test --project replay-chromium
-```
-
-<Icon icon="cypress" className="mb-1 mr-1 inline-block h-5 w-6" /> Cypress:
-
-```sh
-npx cypress run --browser replay-chromium
 ```
 
 ## Trace back every DOM change
@@ -58,7 +52,7 @@ Because of this, a flaky test does not feel like an act of higher force, but can
 
 ## Test Steps Trace
 
-Replay Devtools work great with your existing test suite. Cypress and Playwright plugins allow you to **rewind or fast forward** to any command from your test run.
+Replay Devtools work great with your existing test suite. The Playwright plugin lets you **rewind or fast forward** to any command from your test run.
 
 The command details panel contains information on passed arguments, returned values, and targeted elements. Commands are integrated with the rest of DevTools. This means you can jump from a command detail into the [Elements panel](/basics/replay-devtools/browser-devtools/elements-panel), or inspect API calls in the [Network panel](/basics/replay-devtools/browser-devtools/network-monitor).
 
@@ -152,11 +146,9 @@ width={870}
 
 If test flakiness pushed you to consider switching to a new testing framework, be at ease. Replay is a browser based on Chromium that can be integrated to any test framework.
 
-We have created an extra tooling around the most popular ones today - [Cypress.io](/reference/test-runners/cypress-io/overview) and [Playwright](/basics/getting-started/record-your-playwright-tests).
+We have created extra tooling around popular frameworks—see the [Playwright guide](/basics/getting-started/record-your-playwright-tests) to get started.
 
 </Basic>
-
-<Icon icon="cypress" className="mr-4 inline-block h-9 w-9" />
 
 <Icon icon="playwright" className="mr-4 inline-block h-9 w-9" />
 
@@ -191,18 +183,6 @@ If you battle with flaky tests, you can [compare a failing and a passing test](h
 </Accordion>
 
 <QuickLinks title="Next steps" description="Learn how to record your first Replay, manage your test suites, and debug flaky tests using Replay DevTools">
-
-<QuickLink
-
-title="Record your first Cypress test"
-
-icon="cypress"
-
-href="/basics/getting-started/record-your-cypress-tests"
-
-description="Learn how to get started with Cypress and Replay"
-
-/>
 
 <QuickLink
 

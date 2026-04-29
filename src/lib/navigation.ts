@@ -24,27 +24,95 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
           href: '/basics/getting-started/record-your-app',
         },
         {
-          title: 'Record your Cypress.io test',
-          href: '/basics/getting-started/record-your-cypress-tests',
-        },
-        {
           title: 'Record your Playwright test',
           href: '/basics/getting-started/record-your-playwright-tests',
+          links: [
+            {
+              title: 'Overview',
+              href: '/basics/getting-started/record-your-playwright-tests',
+            },
+            {
+              title: 'Recording Playwright core',
+              href: '/basics/getting-started/record-your-playwright-tests/playwright-core',
+            },
+            {
+              title: 'Debugging tests',
+              href: '/basics/getting-started/record-your-playwright-tests/debugging-tests',
+            },
+            {
+              title: 'GitHub actions',
+              href: '/basics/getting-started/record-your-playwright-tests/github-actions',
+            },
+            {
+              title: 'PR Comments',
+              href: '/basics/test-suites/pr-comments',
+            },
+            {
+              title: 'Other CI providers',
+              href: '/basics/getting-started/record-your-playwright-tests/other-ci-providers',
+            },
+            {
+              title: 'Writing new tests',
+              href: '/basics/getting-started/record-your-playwright-tests/writing-new-tests',
+            },
+            {
+              title: 'Troubleshooting',
+              href: '/basics/getting-started/record-your-playwright-tests/troubleshooting',
+            },
+            {
+              title: 'FAQ',
+              href: '/basics/getting-started/record-your-playwright-tests/faq',
+            },
+          ],
         },
       ],
     },
     {
-      title: 'Time Travel',
-      icon: 'rocket',
+      title: 'Replay MCP',
+      icon: 'mcp',
       defaultOpen: true,
       links: [
         {
-          title: 'Why time travel?',
-          href: '/basics/time-travel/why-time-travel',
+          title: 'Overview',
+          href: '/basics/replay-mcp/overview',
         },
         {
-          title: 'How does time travel work?',
-          href: '/basics/time-travel/how-does-time-travel-work',
+          title: 'Quickstart',
+          href: '/basics/replay-mcp/quickstart',
+        },
+        {
+          title: 'Tools Reference',
+          href: '/basics/replay-mcp/tools',
+        },
+      ],
+    },
+    {
+      title: 'Replay Chrome Extension',
+      icon: 'replaychrome',
+      defaultOpen: true,
+      links: [
+        {
+          title: 'Getting Started',
+          href: '/basics/replay-chrome-extension/getting-started',
+        },
+      ],
+    },
+    {
+      title: 'Test Suite Dashboard',
+      icon: 'analytics',
+      defaultOpen: true,
+      links: [
+        {
+          title: 'Overview',
+          href: '/basics/test-suites/overview',
+        },
+        {
+          title: 'Recent runs',
+          href: '/basics/test-suites/recent-runs',
+        },
+        {
+          title: 'Top Failing And Flaky Tests',
+          href: '/basics/test-suites/top-failing-and-flaky-tests',
         },
       ],
     },
@@ -96,10 +164,6 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
               href: '/basics/replay-devtools/framework-devtools/redux-panel',
             },
             {
-              title: 'Cypress Timeline',
-              href: '/basics/replay-devtools/framework-devtools/cypress-timeline',
-            },
-            {
               title: 'Playwright Timeline',
               href: '/basics/replay-devtools/framework-devtools/playwright-timeline',
             },
@@ -139,55 +203,17 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
       ],
     },
     {
-      title: 'Replay Chrome Extension',
-      icon: 'replaychrome',
+      title: 'Time Travel',
+      icon: 'rocket',
       defaultOpen: true,
       links: [
         {
-          title: 'Getting Started',
-          href: '/basics/replay-chrome-extension/getting-started',
-        },
-      ],
-    },
-    {
-      title: 'Replay MCP',
-      icon: 'mcp',
-      defaultOpen: true,
-      links: [
-        {
-          title: 'Overview',
-          href: '/basics/replay-mcp/overview',
+          title: 'Why time travel?',
+          href: '/basics/time-travel/why-time-travel',
         },
         {
-          title: 'Quickstart',
-          href: '/basics/replay-mcp/quickstart',
-        },
-        {
-          title: 'Tools Reference',
-          href: '/basics/replay-mcp/tools',
-        },
-      ],
-    },
-    {
-      title: 'Test Suite Dashboard',
-      icon: 'analytics',
-      defaultOpen: true,
-      links: [
-        {
-          title: 'Overview',
-          href: '/basics/test-suites/overview',
-        },
-        {
-          title: 'Recent runs',
-          href: '/basics/test-suites/recent-runs',
-        },
-        {
-          title: 'Top Failing And Flaky Tests',
-          href: '/basics/test-suites/top-failing-and-flaky-tests',
-        },
-        {
-          title: 'PR Comments',
-          href: '/basics/test-suites/pr-comments',
+          title: 'How does time travel work?',
+          href: '/basics/time-travel/how-does-time-travel-work',
         },
       ],
     },
@@ -227,70 +253,6 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
       defaultOpen: true,
       links: [
         { title: 'Overview', href: '/reference/test-runners/overview' },
-        {
-          title: 'Cypress.io',
-          href: '/reference/test-runners/cypress-io/overview',
-          links: [
-            {
-              title: 'Overview',
-              href: '/reference/test-runners/cypress-io/overview',
-            },
-            {
-              title: 'Debugging tests',
-              href: '/reference/test-runners/cypress-io/debugging-tests',
-            },
-            {
-              title: 'GitHub actions',
-              href: '/reference/test-runners/cypress-io/github-actions',
-            },
-            {
-              title: 'Other CI providers',
-              href: '/reference/test-runners/cypress-io/other-ci-providers',
-            },
-            {
-              title: 'FAQ',
-              href: '/reference/test-runners/cypress-io/faq',
-            },
-          ],
-        },
-        {
-          title: 'Playwright',
-          href: '/reference/test-runners/playwright/overview',
-          links: [
-            {
-              title: 'Overview',
-              href: '/reference/test-runners/playwright/overview',
-            },
-            {
-              title: 'Recording Playwright core',
-              href: '/reference/test-runners/playwright/playwright-core',
-            },
-            {
-              title: 'Debugging tests',
-              href: '/reference/test-runners/playwright/debugging-tests',
-            },
-            {
-              title: 'GitHub actions',
-              href: '/reference/test-runners/playwright/github-actions',
-            },
-            {
-              title: 'Other CI providers',
-              href: '/reference/test-runners/playwright/other-ci-providers',
-            },
-            {
-              title: 'Writing new tests',
-              href: '/reference/test-runners/playwright/writing-new-tests',
-            },
-            {
-              title: 'Troubleshooting',
-              href: '/reference/test-runners/playwright/troubleshooting',
-            },
-            {
-              title: 'FAQ',
-              href: '/reference/test-runners/playwright/faq',
-            },
-          ],
-        },
         { title: 'Selenium', href: '/reference/test-runners/selenium' },
         {
           title: 'WebdriverIO',
@@ -455,10 +417,6 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
           href: '/learn/examples/playwright',
         },
         {
-          title: 'Cypress.io',
-          href: '/learn/examples/cypress-io',
-        },
-        {
           title: 'Next.js',
           href: '/learn/examples/nextjs',
         },
@@ -476,10 +434,6 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
         {
           title: 'Playwright',
           href: '/learn/comparisons/playwright',
-        },
-        {
-          title: 'Cypress',
-          href: '/learn/comparisons/cypress',
         },
         {
           title: `Chrome Recorder`,

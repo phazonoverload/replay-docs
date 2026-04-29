@@ -1,0 +1,133 @@
+---
+title: GitHub actions
+---
+
+This page covers running Replay-recorded Playwright tests on GitHub Actions: a minimal workflow, how to add Replay to an existing workflow, and how to control which recordings upload.
+
+If you have not configured `playwright.config.ts` yet, start with [Record your Playwright tests](/basics/getting-started/record-your-playwright-tests).
+
+## Simple setup
+
+A working setup needs three things:
+
+1. The Replay reporter and `replay-chromium` project in `playwright.config.ts`.
+2. A workflow that installs the Replay browser before running tests.
+3. `REPLAY_API_KEY` available to the test step.
+
+### `playwright.config.ts`
+
+```jsx fileName="playwright.config.ts" lineNumbers=true
+import { PlaywrightTestConfig } from "@playwright/test";
+import { devices as replayDevices, replayReporter } from "@replayio/playwright";
+
+const config: PlaywrightTestConfig = {
+  reporter: [
+    replayReporter({
+      apiKey: process.env.REPLAY_API_KEY,
+      upload: true,
+    }),
+    ["line"],
+  ],
+  projects: [
+    {
+      name: "replay-chromium",
+      use: { ...replayDevices["Replay Chromium"] },
+    },
+  ],
+};
+export default config;
+```
+
+### `.github/workflows/e2e.yml`
+
+```yml fileName=".github/workflows/e2e.yml" lineNumbers=true
+name: End-to-end tests
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # If you're using Yarn or PNPM, use the appropriate install command here
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Replay Chromium
+        run: npx replayio install
+      - name: Run Playwright tests
+        run: npx playwright test --project replay-chromium
+        env:
+          REPLAY_API_KEY: ${{ secrets.REPLAY_API_KEY }}
+```
+
+Add the workspace API key to **Settings → Secrets and variables → Actions** as `REPLAY_API_KEY` so the job can upload to your workspace.
+
+## Adding Replay to an existing workflow
+
+Replay does not replace your existing test workflow—it only adds two things and wires the API key into the test step.
+
+- **Add `npx replayio install`** before tests run. If you previously installed Playwright's browsers (`npx playwright install`), keep that step only if you also run non-Replay projects; otherwise the Replay browser is enough. Chromium being preinstalled on the runner does not cover Replay—you still need this step.
+- **Pass `REPLAY_API_KEY` to the step that runs tests** via `env:` (using `secrets.REPLAY_API_KEY`).
+- **Run with `--project replay-chromium`** if your config defines more than one project. Without `--project`, Playwright runs all of them.
+
+Leave the rest alone: checkout, dependency install, database setup, preview-deployment waits, etc. are application concerns and stay as-is.
+
+<Callout>
+If your tests depend on a preview deployment (Vercel, Netlify, Cloudflare, etc.), the wait-for-deployment step still belongs **before** the Playwright run. Replay does not change that ordering.
+
+</Callout>
+
+## Controlling which recordings upload
+
+Upload behavior is configured on `replayReporter` in `playwright.config.ts`—not in YAML. The reporter handles uploads during the test run, so you do not need a separate "upload" step.
+
+For full coverage of upload options, see [Upload strategies](/reference/ci-workflows/upload-strategies). The most common patterns are below.
+
+### Upload only failed tests
+
+```js fileName="playwright.config.ts" lineNumbers=true highlight=["8-10"]
+import { PlaywrightTestConfig } from "@playwright/test";
+import { devices as replayDevices, replayReporter } from "@replayio/playwright";
+
+const config: PlaywrightTestConfig = {
+  reporter: [
+    replayReporter({
+      apiKey: process.env.REPLAY_API_KEY,
+      upload: {
+        statusThreshold: "failed",
+      },
+    }),
+    ["line"],
+  ],
+  projects: [
+    {
+      name: "replay-chromium",
+      use: { ...replayDevices["Replay Chromium"] },
+    },
+  ],
+};
+export default config;
+```
+
+The workflow YAML stays identical to **Simple setup** above.
+
+<Callout>
+Uploading both failed and passed tests makes side-by-side comparison easier when you debug. See [Upload strategies](/reference/ci-workflows/upload-strategies) for the full set of options, including `failed-and-flaky` and `minimizeUploads`.
+
+</Callout>
+
+## Setting recording visibility
+
+Uploaded recordings are private by default. Visibility is managed in the Replay app at the recording or workspace level after upload—it is not a `replayReporter` option.
+
+If your workflow still uses the legacy [`replayio/action-upload`](/reference/ci-workflows/github-action-upload) GitHub Action, that action accepts a `public` input. New Playwright setups should rely on `replayReporter` for uploads instead.
+
+## Troubleshooting CI runs
+
+- **Tests run but no recordings appear** — Confirm `REPLAY_API_KEY` is set in the test step's `env`, and that the `Run Playwright tests` step uses `--project replay-chromium`. Look for the `[replay.io]` log lines at the end of the test step.
+- **Workflow logs show "None of the configured projects ran using Replay Chromium"** — The CLI did not target the Replay project. Add or fix `--project replay-chromium`.
+- **`npx replayio install` fails** — Re-run with verbose logging, and confirm the runner has network access to download the Replay browser.
+- **Recordings only appear from your local machine** — Double-check that the secret is named `REPLAY_API_KEY` (case-sensitive) and that `secrets.REPLAY_API_KEY` is referenced correctly in the workflow.

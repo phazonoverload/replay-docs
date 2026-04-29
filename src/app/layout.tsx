@@ -10,6 +10,7 @@ import { Analytics as VercelAnalytics } from '@vercel/analytics/react'
 import '@/styles/tailwind.css'
 import Analytics from '@/components/Analytics'
 import Script from 'next/script'
+import { WebMCPProvider } from '@/components/WebMCPProvider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -154,6 +155,7 @@ export default function RootLayout({
         <Providers>
           <Layout>{children}</Layout>
         </Providers>
+        <WebMCPProvider />
         <VercelAnalytics />
       </body>
     </html>

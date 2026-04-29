@@ -33,16 +33,21 @@ function ItemLinkInnerItem({
   className?: string
 }) {
   return (
-    <div className={clsx('flex items-center justify-between p-0.5', className)}>
-      <span className={'flex items-center'}>
+    <div
+      className={clsx(
+        'flex items-center justify-between gap-1 p-0.5',
+        className,
+      )}
+    >
+      <span className="flex min-w-0 items-center gap-1.5 whitespace-nowrap">
         {item.icon && (
           <NavIcon
             icon={item.icon}
             aria-hidden="true"
-            className="ml-1 fill-inherit stroke-inherit text-inherit"
+            className="fill-inherit stroke-inherit text-inherit"
           />
         )}
-        {item.title}
+        <span className="truncate">{item.title}</span>
       </span>
       {item.badge && <Badge type={item.badge} />}
       {item.links && (
@@ -50,7 +55,7 @@ function ItemLinkInnerItem({
           icon="chevron"
           className={clsx(
             open ? 'rotate-90 ' : 'text-gray-600 dark:text-gray-400',
-            'ml-auto w-5 shrink-0',
+            'ml-auto w-4 shrink-0',
           )}
           aria-hidden="true"
         />
@@ -98,20 +103,20 @@ function ItemLinkDisclosure({
               className={className}
             />
           </Disclosure.Button>
-          <Disclosure.Panel as="ul" role="list" className="ml-4">
+          <Disclosure.Panel as="ul" role="list" className="ml-2">
             {item.links?.map((subitem) => (
               <li key={subitem.title}>
                 {subitem.links ? (
                   <ItemLinkDisclosure
                     item={subitem}
-                    className="ml-3"
+                    className="ml-1"
                     parent={item}
                     pathname={pathname}
                   />
                 ) : (
                   <ItemLink
                     item={subitem}
-                    className="ml-3"
+                    className="ml-1"
                     parent={item}
                     pathname={pathname}
                     onLinkClick={onLinkClick}
@@ -186,7 +191,7 @@ export function Navigation({
 
   return (
     <nav className={clsx('text-base', className)}>
-      <ul role="list" className="space-y-1 text-sm">
+      <ul role="list" className="space-y-0.5 text-[0.9rem] leading-6">
         {localizedNavigation.map((section) => {
           return (
             <li key={section.title}>

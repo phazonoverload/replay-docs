@@ -8,6 +8,21 @@ import * as url from 'url'
 
 const __filename = url.fileURLToPath(import.meta.url)
 
+/** Match pages kept live for direct URLs but omitted from sidebar / sitemap. */
+const HIDDEN_FROM_SEARCH_PREFIXES = [
+  '/basics/getting-started/record-your-cypress-tests',
+  '/basics/replay-devtools/framework-devtools/cypress-timeline',
+  '/learn/examples/cypress-io',
+  '/learn/comparisons/cypress',
+]
+
+function isHiddenFromSearchUrl(url) {
+  const pathOnly = url.split('#')[0]
+  return HIDDEN_FROM_SEARCH_PREFIXES.some(
+    (p) => pathOnly === p || pathOnly.startsWith(`${p}/`),
+  )
+}
+
 function extractSections(content) {
   const slugify = slugifyWithCounter()
   const lines = content.split('\n')
@@ -64,37 +79,39 @@ export default function withSearch(nextConfig = {}) {
             this.addContextDependency(pagesDir)
 
             let files = glob.sync('**/page.mdx', { cwd: pagesDir })
-            let data = files.map((file) => {
-              let fileUrl =
-                file === 'page.mdx'
-                  ? '/'
-                  : `/${file.replace(/\/page\.mdx$/, '')}`
-              let raw = fs.readFileSync(path.join(pagesDir, file), 'utf8')
+            let data = files
+              .map((file) => {
+                let fileUrl =
+                  file === 'page.mdx'
+                    ? '/'
+                    : `/${file.replace(/\/page\.mdx$/, '')}`
+                let raw = fs.readFileSync(path.join(pagesDir, file), 'utf8')
 
-              let sections
-              const { data: fm, content } = matter(raw)
-              let keywords = []
-              if (fm.keywords) {
-                keywords =
-                  typeof fm.keywords === 'string'
-                    ? fm.keywords.split(/,\s+/)
-                    : Array.isArray(fm.keywords)
-                      ? fm.keywords
-                      : []
-              }
+                let sections
+                const { data: fm, content } = matter(raw)
+                let keywords = []
+                if (fm.keywords) {
+                  keywords =
+                    typeof fm.keywords === 'string'
+                      ? fm.keywords.split(/,\s+/)
+                      : Array.isArray(fm.keywords)
+                        ? fm.keywords
+                        : []
+                }
 
-              if (cache.get(file)?.[0] === raw) {
-                sections = cache.get(file)[1]
-              } else {
-                let title = fm.title || ''
-                sections = [[title, null, []]]
-                const extracted = extractSections(content)
-                sections.push(...extracted)
-                cache.set(file, [raw, sections])
-              }
+                if (cache.get(file)?.[0] === raw) {
+                  sections = cache.get(file)[1]
+                } else {
+                  let title = fm.title || ''
+                  sections = [[title, null, []]]
+                  const extracted = extractSections(content)
+                  sections.push(...extracted)
+                  cache.set(file, [raw, sections])
+                }
 
-              return { url: fileUrl, sections, keywords }
-            })
+                return { url: fileUrl, sections, keywords }
+              })
+              .filter((item) => !isHiddenFromSearchUrl(item.url))
 
             // When this file is imported within the application
             // the following module is loaded:

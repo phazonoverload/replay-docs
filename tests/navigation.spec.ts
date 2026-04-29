@@ -8,12 +8,11 @@ test('navigation expanding works', async ({ page }) => {
 })
 
 test('navigation collapsing works', async ({ page }) => {
-  await page.goto('/basics/test-suites/recent-runs')
-  // sidebar items are expanded
-  const navigationItem = page.getByText('PR Comments', { exact: true })
+  await page.goto('/basics/test-suites/pr-comments')
+  const nav = page.locator('nav')
+  const navigationItem = nav.getByText('PR Comments', { exact: true })
   await expect(navigationItem).toBeVisible()
 
-  const nav = page.locator('nav')
-  await nav.getByText('Test Suite Dashboard').click()
+  await nav.getByText('Record your Playwright test').click()
   await expect(navigationItem).not.toBeVisible()
 })

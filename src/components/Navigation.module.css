@@ -1,7 +1,13 @@
 .item {
   display: block;
-  color: #6b7280;
+  padding: 0.375rem 0.625rem;
+  color: #4b5563;
   border-radius: 0.5rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  transition:
+    color 120ms ease,
+    background-color 120ms ease;
 }
 
 .item:hover {
@@ -12,6 +18,7 @@
 .item.selected {
   font-weight: 600;
   color: #111827;
+  background-color: rgba(17, 24, 39, 0.06);
 }
 
 :global(.dark) .item {
@@ -25,4 +32,5 @@
 
 :global(.dark) .item.selected {
   color: #fafafa;
+  background-color: rgba(255, 255, 255, 0.08);
 }

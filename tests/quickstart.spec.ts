@@ -1,8 +1,12 @@
 import { test, expect } from '@playwright/test'
 
-test('home page redirects to quickstart guide', async ({ page }) => {
+test('home page links to record-your-app quickstart', async ({ page }) => {
   await page.goto('/')
-  await page.getByText('Get started with our Quickstart Guide').click()
+  await page
+    .getByRole('link', {
+      name: 'Quickstart: record your app in the Replay browser',
+    })
+    .click()
   await expect(page).toHaveURL(/.*\/getting-started/)
   const heading = page.getByRole('heading', { name: 'How to record' })
   await expect(heading).toBeVisible()

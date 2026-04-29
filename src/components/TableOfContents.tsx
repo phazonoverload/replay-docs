@@ -116,44 +116,49 @@ export function TableOfContents() {
       data-testid="table-of-contents"
       className="hidden py-8 xl:sticky xl:top-[4.75rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.75rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6"
     >
-      <nav aria-labelledby="on-this-page-title" className="w-56">
+      <nav aria-labelledby="on-this-page-title" className="w-60">
         {tableOfContents.length > 0 && (
           <>
             <h2
               id="on-this-page-title"
-              className="font-display text-sm font-medium text-gray-900 dark:text-white"
+              className="mb-3 pl-4 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-gray-500 dark:text-zinc-500"
             >
               On this page
             </h2>
-            <ol role="list" className="w-42 mt-4 space-y-2 text-sm">
+            {/* Vertical rail behind every entry — active entries paint a
+                primary-colored 2px segment over the rail, giving readers a
+                clear sense of where they are on the page. */}
+            <ol
+              role="list"
+              className="border-l border-gray-200 text-sm dark:border-zinc-800"
+            >
               {tableOfContents.map((section) => (
                 <li key={section.id}>
-                  <h3>
+                  <h3 className="m-0">
                     <Link
                       href={`#${section.id}`}
                       className={clsx(
+                        '-ml-px block border-l-2 py-1.5 pl-4 leading-snug transition-colors',
                         isActive(section)
-                          ? 'font-medium leading-tight text-gray-900 dark:text-white'
-                          : 'font-normal leading-tight text-gray-500 hover:text-gray-800 dark:text-zinc-400 dark:hover:text-zinc-200',
+                          ? 'border-primary font-semibold text-primary'
+                          : 'border-transparent font-normal text-gray-500 hover:border-gray-300 hover:text-gray-900 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-100',
                       )}
                     >
                       {section.title}
                     </Link>
                   </h3>
                   {section.children.length > 0 && (
-                    <ol
-                      role="list"
-                      className="mt-2 space-y-1 pl-5 text-gray-500 dark:text-gray-400"
-                    >
+                    <ol role="list" className="text-[0.8125rem]">
                       {section.children.map((subSection) => (
                         <li key={subSection.id}>
                           <Link
                             href={`#${subSection.id}`}
-                            className={
+                            className={clsx(
+                              '-ml-px block border-l-2 py-1 pl-7 leading-snug transition-colors',
                               isActive(subSection)
-                                ? 'font-medium text-gray-900 dark:text-white'
-                                : 'hover:text-gray-800 dark:text-zinc-300 dark:hover:text-zinc-100'
-                            }
+                                ? 'border-primary font-medium text-primary'
+                                : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-900 dark:text-zinc-500 dark:hover:border-zinc-600 dark:hover:text-zinc-100',
+                            )}
                           >
                             {subSection.title}
                           </Link>

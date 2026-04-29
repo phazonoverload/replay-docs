@@ -1,15 +1,18 @@
 ---
 title: Pull Request Comments
 keywords: PR, PR Comments, GitHub
-description: Pull Request Comments show updated results of your test run with links to replays and the Test Suite Dashboard, all from the pull request in GitHub.
+description: Add the Replay bot to GitHub so PR comments include a summary of the latest test run with a dashboard link, root-cause analysis and suggested fixes for failures with recording links—updating on each push.
 image: /images/pr-comment.png
 ---
 
 ## Overview
 
-Once you have your test suites integrated with Replay in CI, you can add our bot to your GitHub repository. The bot will leave comments on PRs with a summary of the most recent test run.
+Once you have your test suites integrated with Replay in CI, you can add our bot to your GitHub repository. The bot will post comments:
 
-The comment also includes links to replays of the tests and the test run in the Test Suite Dashboard. The comment will automatically update with the most recent results every time a new commit is pushed.
+- A summary of the most recent test run, with a link to view them in your Replay dashboard
+- Root cause analysis and suggested fix for each failed test, with a link to view the Replay recording
+
+The comment will automatically update with the most recent results every time a new commit is pushed.
 
 <Steps>
 
@@ -44,11 +47,31 @@ jobs:
 
 After you run your test, PR comment bot will collect links from your test step, and show them as a comment in your pull request conversation tab on GitHub.
 
+### Test Run summary comment
+
 <Figure
 
 alt="PR Comment bot in GitHub"
 
 src="/images/pull-request-comments.png"
+
+height={440}
+
+width={870}
+
+/>
+
+### Failed test root-cause analysis & fix
+
+A comment will be posted for the first failed test, with time-travel root-cause analysis and suggested fix.
+
+Once you push a fix, Replay will move on to the next failed test, and update the comment with analysis and a fix.
+
+<Figure
+
+alt="PR Comment bot in GitHub"
+
+src="/images/replayGitBot_analysis.png"
 
 height={440}
 

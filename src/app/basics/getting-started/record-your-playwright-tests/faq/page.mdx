@@ -2,21 +2,17 @@
 title: Frequently asked questions
 ---
 
-<Accordion>
+## Do I need to use `line` reporter along with `@replayio/playwright/reporter`?
 
-<AccordionItem title="Do I need to use `line` reporter along with `@replayio/playwright/reporter`?">
+Using `line` reporter is not required. `line` reporter will print out information about the Playwright test run to your terminal.
 
-Using `line` reporter is not required. `line` reporter will print out information about playwright test run to your terminal.
-
-</AccordionItem>
-
-<AccordionItem title="How do I group tests ran in a matrix or across multiple runners into the same test run?">
+## How do I group tests ran in a matrix or across multiple runners into the same test run?
 
 By default, each invocation of Playwright is grouped into a test run by a UUID generated when the run begins. To group multiple invocations of Playwright into the same run, set `RECORD_REPLAY_METADATA_TEST_RUN_ID` to the same UUID value and that will be used instead of generating a UUID for each.
 
-Below is an example which runs three test suites using a matrix in Github Actions but groups the results into the same test run in Replay:
+Below is an example which runs three test suites using a matrix in GitHub Actions but groups the results into the same test run in Replay:
 
-```yaml
+```yaml fileName=".github/workflows/e2e.yml"
 jobs:
   test-run-id:
     runs-on: ubuntu-latest
@@ -46,30 +42,20 @@ jobs:
           RECORD_REPLAY_METADATA_TEST_RUN_ID: ${{ needs.test-run-id.outputs.testRunId }}
 ```
 
-</AccordionItem>
+## What's in the `.replay` folder?
 
-<AccordionItem title="What’s in the `.replay` folder?">
-
-`/.replay/runtimes` - this is where the replay browser(s) are installed
+`/.replay/runtimes` - this is where the Replay browser(s) are installed
 
 `/` - recorded replays are saved locally in the root folder
 
-If you’re trying to cache the browser download, cache `~/.replay/runtimes` or simply cache it before creating replays.
+If you're trying to cache the browser download, cache `~/.replay/runtimes` or simply cache it before creating replays.
 
-</AccordionItem>
-
-<AccordionItem title="How do I confirm that the browsers are installed correctly">
+## How do I confirm that the browsers are installed correctly?
 
 Run `ls -alR ~/.replay/runtimes` to see the contents of the runtimes folder.
 
-</AccordionItem>
-
-<AccordionItem title="What other environment variables can I configure?">
+## What other environment variables can I configure?
 
 `RECORD_REPLAY_METADATA_TEST_RUN_TITLE` - manually apply a test run title, instead of being inferred from the latest commit
 
 `RECORD_REPLAY_DIRECTORY` - set a custom directory (default: `~/.replay`)
-
-</AccordionItem>
-
-</Accordion>

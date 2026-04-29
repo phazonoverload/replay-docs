@@ -100,7 +100,7 @@ The extension also includes a built-in agent that can answer initial questions a
 
 ## Playwright / E2E Tests
 
-For automated test suites, you can configure Playwright (or Cypress) to record every test run using the Replay Browser. This is ideal for CI — tests run automatically, and when something fails, you get a full time-travel recording of what happened on that CI machine without having to reproduce it locally.
+For automated test suites, you can configure Playwright to record every test run using the Replay Browser. This is ideal for CI — tests run automatically, and when something fails, you get a full time-travel recording of what happened on that CI machine without having to reproduce it locally.
 
 Recordings from E2E tests have the same 100% fidelity as manual Replay Browser recordings.
 
@@ -108,10 +108,9 @@ Recordings from E2E tests have the same 100% fidelity as manual Replay Browser r
 
 ## Configure your test runner
 
-Add the Replay plugin to your Playwright or Cypress configuration. See the detailed setup guides:
+Add the Replay plugin to your Playwright configuration. See the detailed setup guide:
 
 - [Record Playwright tests](/basics/getting-started/record-your-playwright-tests)
-- [Record Cypress tests](/basics/getting-started/record-your-cypress-tests)
 
 ## View recordings in CI
 
@@ -121,7 +120,7 @@ Once configured, every test run produces recordings that are uploaded automatica
 
 <Callout type="note">
 
-**Agent-driven setup:** AI coding agents can help configure test recording using the `replay-playwright` and `replay-cypress` skills. Install skills with `npx @replayio/replay skills add`.
+**Agent-driven setup:** AI coding agents can help configure test recording using the `replay-playwright` skill. Install skills with `npx @replayio/replay skills add`.
 
 </Callout>
 

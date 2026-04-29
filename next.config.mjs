@@ -27,6 +27,19 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   productionBrowserSourceMaps: true,
 
+  async rewrites() {
+    return [
+      // Agent-readiness discovery endpoints. We host the routes under
+      // /well-known/* (Next.js does not include `.`-prefixed folders in the
+      // app-router route tree) and rewrite the canonical /.well-known/*
+      // paths so RFC compliance still holds.
+      {
+        source: '/.well-known/:path*',
+        destination: '/well-known/:path*',
+      },
+    ]
+  },
+
   async redirects() {
     return [
       {

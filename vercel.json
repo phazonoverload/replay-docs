@@ -30,7 +30,7 @@
     },
     {
       "source": "/test-suites/test-runners/cypress/cypress-faqs",
-      "destination": "/reference/test-runners/cypress-io/faq"
+      "destination": "/basics/getting-started/record-your-cypress-tests/faq"
     },
     {
       "source": "/getting-started/replay-browser/install-chrome",
@@ -334,15 +334,15 @@
     },
     {
       "source": "/learn-more/debugging-examples",
-      "destination": "/reference/test-runners/cypress-io/debugging-tests"
+      "destination": "/basics/getting-started/record-your-cypress-tests/debugging-tests"
     },
     {
       "source": "/learn-more/debugging-examples/blog-debugging-stately-with-replay-node",
-      "destination": "/reference/test-runners/cypress-io/debugging-tests"
+      "destination": "/basics/getting-started/record-your-cypress-tests/debugging-tests"
     },
     {
       "source": "/learn-more/debugging-examples/debugging-navigation-issues",
-      "destination": "/reference/test-runners/playwright/debugging-tests"
+      "destination": "/basics/getting-started/record-your-playwright-tests/debugging-tests"
     },
     {
       "source": "/learn-more/examples-of-flaky-tests",
@@ -578,27 +578,27 @@
     },
     {
       "source": "/test-suites/_archive/ci-integration/github-actions",
-      "destination": "/reference/test-runners/cypress-io/github-actions"
+      "destination": "/basics/getting-started/record-your-cypress-tests/github-actions"
     },
     {
       "source": "/test-suites/cypress/_archive/cypress-replays",
-      "destination": "/reference/test-runners/cypress-io/overview"
+      "destination": "/basics/getting-started/record-your-cypress-tests"
     },
     {
       "source": "/test-suites/cypress/configuration",
-      "destination": "/reference/test-runners/cypress-io/overview"
+      "destination": "/basics/getting-started/record-your-cypress-tests"
     },
     {
       "source": "/test-suites/cypress/continuous-integration",
-      "destination": "/reference/test-runners/cypress-io/other-ci-providers"
+      "destination": "/basics/getting-started/record-your-cypress-tests/other-ci-providers"
     },
     {
       "source": "/test-suites/cypress/continuous-integration/github",
-      "destination": "/reference/test-runners/cypress-io/github-actions"
+      "destination": "/basics/getting-started/record-your-cypress-tests/github-actions"
     },
     {
       "source": "/test-suites/cypress/continuous-integration/other-ci-providers",
-      "destination": "/reference/test-runners/cypress-io/other-ci-providers"
+      "destination": "/basics/getting-started/record-your-cypress-tests/other-ci-providers"
     },
     {
       "source": "/test-suites/cypress/dashboard",
@@ -606,23 +606,23 @@
     },
     {
       "source": "/test-suites/cypress/debugging-tips",
-      "destination": "/reference/test-runners/cypress-io/debugging-tests"
+      "destination": "/basics/getting-started/record-your-cypress-tests/debugging-tests"
     },
     {
       "source": "/test-suites/cypress/faq",
-      "destination": "/reference/test-runners/cypress-io/faq"
+      "destination": "/basics/getting-started/record-your-cypress-tests/faq"
     },
     {
       "source": "/test-suites/cypress/installation",
-      "destination": "/reference/test-runners/cypress-io/overview"
+      "destination": "/basics/getting-started/record-your-cypress-tests"
     },
     {
       "source": "/test-suites/cypress/panel",
-      "destination": "/reference/test-runners/cypress-io/overview"
+      "destination": "/basics/getting-started/record-your-cypress-tests"
     },
     {
       "source": "/test-suites/cypress/troubleshooting-guide",
-      "destination": "/reference/test-runners/cypress-io/faq"
+      "destination": "/basics/getting-started/record-your-cypress-tests/faq"
     },
     {
       "source": "/test-suites/features/pull-request-comments",
@@ -646,19 +646,19 @@
     },
     {
       "source": "/test-suites/playwright/continuous-integration",
-      "destination": "/reference/test-runners/playwright/github-actions"
+      "destination": "/basics/getting-started/record-your-playwright-tests/github-actions"
     },
     {
       "source": "/test-suites/playwright/continuous-integration/git-hub-actions",
-      "destination": "/reference/test-runners/playwright/github-actions"
+      "destination": "/basics/getting-started/record-your-playwright-tests/github-actions"
     },
     {
       "source": "/test-suites/playwright/continuous-integration/other-ci-providers",
-      "destination": "/reference/test-runners/playwright/other-ci-providers"
+      "destination": "/basics/getting-started/record-your-playwright-tests/other-ci-providers"
     },
     {
       "source": "/test-suites/playwright/faq",
-      "destination": "/reference/test-runners/playwright/faq"
+      "destination": "/basics/getting-started/record-your-playwright-tests/faq"
     },
     {
       "source": "/test-suites/playwright/installation",
@@ -674,7 +674,7 @@
     },
     {
       "source": "/test-suites/playwright/troubleshooting-guide",
-      "destination": "/reference/test-runners/playwright/faq"
+      "destination": "/basics/getting-started/record-your-playwright-tests/faq"
     },
     {
       "source": "/test-suites/puppeteer",
@@ -963,11 +963,11 @@
     },
     {
       "source": "/test-runners/cypress-io/dashboard",
-      "destination": "/reference/test-runners/cypress-io/dashboard"
+      "destination": "/basics/getting-started/record-your-cypress-tests/dashboard"
     },
     {
       "source": "/test-runners/cypress-io/debugging-tests",
-      "destination": "/reference/test-runners/cypress-io/debugging-tests"
+      "destination": "/basics/getting-started/record-your-cypress-tests/debugging-tests"
     },
     {
       "source": "/test-runners/cypress-io/examples",
@@ -975,19 +975,19 @@
     },
     {
       "source": "/test-runners/cypress-io/faq",
-      "destination": "/reference/test-runners/cypress-io/faq"
+      "destination": "/basics/getting-started/record-your-cypress-tests/faq"
     },
     {
       "source": "/test-runners/cypress-io/getting-started",
-      "destination": "/reference/test-runners/cypress-io/overview"
+      "destination": "/basics/getting-started/record-your-cypress-tests"
     },
     {
       "source": "/test-runners/cypress-io/github-actions",
-      "destination": "/reference/test-runners/cypress-io/github-actions"
+      "destination": "/basics/getting-started/record-your-cypress-tests/github-actions"
     },
     {
       "source": "/test-runners/cypress-io/other-ci-providers",
-      "destination": "/reference/test-runners/cypress-io/other-ci-providers"
+      "destination": "/basics/getting-started/record-your-cypress-tests/other-ci-providers"
     },
     {
       "source": "/test-runners/cypress-io/panel",
@@ -999,15 +999,15 @@
     },
     {
       "source": "/test-runners/cypress-io/recording-options",
-      "destination": "/reference/test-runners/cypress-io/overview"
+      "destination": "/basics/getting-started/record-your-cypress-tests"
     },
     {
       "source": "/reference/test-runners/cypress-io/recording-options",
-      "destination": "/reference/test-runners/cypress-io/overview"
+      "destination": "/basics/getting-started/record-your-cypress-tests"
     },
     {
       "source": "/test-runners/cypress-io/troubleshooting-guide",
-      "destination": "/reference/test-runners/cypress-io/troubleshooting-guide"
+      "destination": "/basics/getting-started/record-your-cypress-tests/troubleshooting-guide"
     },
     {
       "source": "/test-runners/overview",
@@ -1015,7 +1015,7 @@
     },
     {
       "source": "/test-runners/playwright/debugging-tests",
-      "destination": "/reference/test-runners/playwright/debugging-tests"
+      "destination": "/basics/getting-started/record-your-playwright-tests/debugging-tests"
     },
     {
       "source": "/test-runners/playwright/examples",
@@ -1023,11 +1023,11 @@
     },
     {
       "source": "/test-runners/playwright/faq",
-      "destination": "/reference/test-runners/playwright/faq"
+      "destination": "/basics/getting-started/record-your-playwright-tests/faq"
     },
     {
       "source": "/test-runners/playwright/github-actions",
-      "destination": "/reference/test-runners/playwright/github-actions"
+      "destination": "/basics/getting-started/record-your-playwright-tests/github-actions"
     },
     {
       "source": "/test-runners/playwright/node",
@@ -1035,7 +1035,7 @@
     },
     {
       "source": "/test-runners/playwright/other-ci-providers",
-      "destination": "/reference/test-runners/playwright/other-ci-providers"
+      "destination": "/basics/getting-started/record-your-playwright-tests/other-ci-providers"
     },
     {
       "source": "/test-runners/playwright/record-your-first-replay",
@@ -1047,11 +1047,11 @@
     },
     {
       "source": "/test-runners/playwright/troubleshooting-guide",
-      "destination": "/reference/test-runners/playwright/troubleshooting"
+      "destination": "/basics/getting-started/record-your-playwright-tests/troubleshooting"
     },
     {
       "source": "/test-runners/playwright/writing-new-tests",
-      "destination": "/reference/test-runners/playwright/writing-new-tests"
+      "destination": "/basics/getting-started/record-your-playwright-tests/writing-new-tests"
     },
     {
       "source": "/test-runners/puppeteer",
@@ -1067,7 +1067,7 @@
     },
     {
       "source": "/reference/test-runners/cypress-io/getting-started",
-      "destination": "/reference/test-runners/cypress-io/overview"
+      "destination": "/basics/getting-started/record-your-cypress-tests"
     },
     {
       "source": "/reference/test-runners/cypress-io/examples",
@@ -1107,11 +1107,11 @@
     },
     {
       "source": "/reference/test-runners/cypress-io",
-      "destination": "/reference/test-runners/cypress-io/overview"
+      "destination": "/basics/getting-started/record-your-cypress-tests"
     },
     {
       "source": "/test-runners/cypress-io",
-      "destination": "/reference/test-runners/cypress-io/overview"
+      "destination": "/basics/getting-started/record-your-cypress-tests"
     },
     {
       "source": "/docs/setting-up-a-team-f5bd9ee853814d6f84e23fb535066199#4913df9eb7384a94a23ccbf335189370",
@@ -1124,6 +1124,70 @@
     {
       "source": "/basics/replay-devtools/mcp",
       "destination": "/basics/replay-mcp/overview"
+    },
+    {
+      "source": "/reference/test-runners/playwright",
+      "destination": "/basics/getting-started/record-your-playwright-tests"
+    },
+    {
+      "source": "/reference/test-runners/playwright/overview",
+      "destination": "/basics/getting-started/record-your-playwright-tests"
+    },
+    {
+      "source": "/reference/test-runners/playwright/playwright-core",
+      "destination": "/basics/getting-started/record-your-playwright-tests/playwright-core"
+    },
+    {
+      "source": "/reference/test-runners/playwright/debugging-tests",
+      "destination": "/basics/getting-started/record-your-playwright-tests/debugging-tests"
+    },
+    {
+      "source": "/reference/test-runners/playwright/github-actions",
+      "destination": "/basics/getting-started/record-your-playwright-tests/github-actions"
+    },
+    {
+      "source": "/reference/test-runners/playwright/other-ci-providers",
+      "destination": "/basics/getting-started/record-your-playwright-tests/other-ci-providers"
+    },
+    {
+      "source": "/reference/test-runners/playwright/writing-new-tests",
+      "destination": "/basics/getting-started/record-your-playwright-tests/writing-new-tests"
+    },
+    {
+      "source": "/reference/test-runners/playwright/troubleshooting",
+      "destination": "/basics/getting-started/record-your-playwright-tests/troubleshooting"
+    },
+    {
+      "source": "/reference/test-runners/playwright/faq",
+      "destination": "/basics/getting-started/record-your-playwright-tests/faq"
+    },
+    {
+      "source": "/reference/test-runners/cypress-io/overview",
+      "destination": "/basics/getting-started/record-your-cypress-tests"
+    },
+    {
+      "source": "/reference/test-runners/cypress-io/dashboard",
+      "destination": "/basics/getting-started/record-your-cypress-tests/dashboard"
+    },
+    {
+      "source": "/reference/test-runners/cypress-io/debugging-tests",
+      "destination": "/basics/getting-started/record-your-cypress-tests/debugging-tests"
+    },
+    {
+      "source": "/reference/test-runners/cypress-io/github-actions",
+      "destination": "/basics/getting-started/record-your-cypress-tests/github-actions"
+    },
+    {
+      "source": "/reference/test-runners/cypress-io/other-ci-providers",
+      "destination": "/basics/getting-started/record-your-cypress-tests/other-ci-providers"
+    },
+    {
+      "source": "/reference/test-runners/cypress-io/faq",
+      "destination": "/basics/getting-started/record-your-cypress-tests/faq"
+    },
+    {
+      "source": "/reference/test-runners/cypress-io/troubleshooting-guide",
+      "destination": "/basics/getting-started/record-your-cypress-tests/troubleshooting-guide"
     }
   ],
   "rewrites": [
