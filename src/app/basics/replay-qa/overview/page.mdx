@@ -1,0 +1,78 @@
+---
+title: Replay QA Overview
+description: Replay QA is an autonomous quality assurance agent. Give it a URL or a GitHub repo. It explores your app like a human, records every session, and delivers root-cause analysis with suggested fixes.
+---
+
+## How it works
+
+### Create a project
+
+Go to [qa.replay.io/new](https://qa.replay.io/new) and provide either a [live project URL](/basics/replay-qa/test-a-url) or a [GitHub repository URL](/basics/replay-qa/connect-a-repo). Replay QA uses this as the starting point for testing.
+
+### Explore
+
+Replay QA navigates your application by clicking through pages, opening menus, and filling in forms. It maps the journeys users can take through the app. For applications with accounts and checkout flows, it attempts signup, login, cart interactions, and payment.
+
+### Test
+
+Each journey runs in a real browser. Replay QA writes Playwright tests for each flow as it goes. No test suite or configuration is required upfront.
+
+### Record
+
+Every test session is recorded with the Replay time-travel debugger. You can replay the exact moment a bug occurred, inspect network requests, read console output, and trace execution.
+
+## Project settings
+
+### Polish passes
+
+Replay QA can run additional polish passes alongside functional testing. Each pass checks a specific category and can be toggled on or off for each project.
+
+| Pass | Description |
+|------|-------------|
+| Network Performance | Checks for slow API responses, large payloads, and excessive requests. |
+| React Rendering | Identifies unnecessary re-renders and component performance issues. |
+| Layout Shift | Detects elements that move after page load, causing cumulative layout shifts. |
+| Accessibility | Audits for missing ARIA labels, contrast issues, and keyboard navigation gaps. |
+| Glitches | Looks for visual artifacts, flickering, and broken animations. |
+| User Experience | Evaluates form validation feedback, loading states, and error handling. |
+| UI Details | Checks alignment, spacing, and visual consistency across pages. |
+
+### Design document
+
+Replay QA can test against a design document that describes the intended behavior of your application. Provide details about what your app does, its main features, key user flows, and any specific expectations QA should test against. The more detail you provide, the better QA can target its testing.
+
+### Logins
+
+You can add or change multiple sets of login credentials. They are saved as the project login variables and used to test signed-in areas.
+
+### Issue tracking
+
+File bugs directly to your issue tracker. Each issue includes the full report: root cause, steps to reproduce, screenshots, and the Replay recording.
+
+Supports **GitHub Issues**, **Jira**, and **Linear**. Configure the integration in your project settings to pick where QA should file the bugs it finds.
+
+<ReportContent />
+
+<PublicAppsSection />
+
+
+
+## Get started
+
+<QuickLinks title="" className="pt-0">
+
+<QuickLink
+  title="Test a URL"
+  icon="wifi"
+  href="/basics/replay-qa/test-a-url"
+  description="Paste a link and get a bug report in minutes."
+/>
+
+<QuickLink
+  title="Connect a GitHub Repo"
+  icon="github"
+  href="/basics/replay-qa/connect-a-repo"
+  description="Set up continuous QA that runs on every change."
+/>
+
+</QuickLinks>

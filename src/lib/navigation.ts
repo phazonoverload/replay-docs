@@ -68,6 +68,25 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
       ],
     },
     {
+      title: 'Replay QA',
+      icon: 'qa',
+      defaultOpen: true,
+      links: [
+        {
+          title: 'Overview',
+          href: '/basics/replay-qa/overview',
+        },
+        {
+          title: 'Connect a Repo',
+          href: '/basics/replay-qa/connect-a-repo',
+        },
+        {
+          title: 'Test a URL',
+          href: '/basics/replay-qa/test-a-url',
+        },
+      ],
+    },
+    {
       title: 'Replay MCP',
       icon: 'mcp',
       defaultOpen: true,

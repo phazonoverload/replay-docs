@@ -76,9 +76,7 @@ export function DocsHeader({
         )}
       </div>
       {!image && description ? (
-        <div className="pb-2 pt-4">
-          <hr className="border-gray-200 dark:border-zinc-800" />
-        </div>
+        <div className="pb-2 pt-4" />
       ) : null}
     </header>
   )
