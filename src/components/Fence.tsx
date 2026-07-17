@@ -18,7 +18,7 @@ const CopyButton = ({
     <Icon
       className={clsx(
         className,
-        'absolute right-4 top-4 h-4 w-4 cursor-pointer text-white text-opacity-40 hover:text-opacity-100',
+        'absolute right-4 top-4 h-4 w-4 cursor-pointer rounded bg-gray-900/80 text-white text-opacity-40 hover:text-opacity-100 dark:bg-zinc-900/80',
       )}
       icon="clipboard"
       onClick={() => {
@@ -47,6 +47,7 @@ export function Fence({
 }) {
   const highlightedLines = sortHighlights(highlight)
   language === 'sh' ? (fileName = 'Terminal') : null
+  const isPlainText = language === 'text'
   return (
     <Highlight
       code={children.trimEnd()}
@@ -54,7 +55,14 @@ export function Fence({
       theme={{ plain: {}, styles: [] }}
     >
       {({ className, style, tokens, getTokenProps }) => (
-        <pre className={clsx(className, 'relative mt-0')} style={style}>
+        <pre
+          className={clsx(
+            className,
+            'relative mt-0',
+            isPlainText && 'overflow-x-hidden whitespace-pre-wrap break-words',
+          )}
+          style={style}
+        >
           <CopyButton>{children}</CopyButton>
           {fileName && (
             <div className="mb-2 border-b border-white border-opacity-20 pb-3 pr-4 text-xs text-white text-opacity-80">
@@ -75,6 +83,7 @@ export function Fence({
                     highlightedLines.includes(lineIndex + 1) &&
                       'bg-gray-400 bg-opacity-15',
                     'px-3',
+                    isPlainText && 'pr-10',
                   )}
                 >
                   <>
