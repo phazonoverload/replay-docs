@@ -24,6 +24,14 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
           href: '/basics/replay-qa/overview',
         },
         {
+          title: 'Test a URL',
+          href: '/basics/replay-qa/test-a-url',
+        },
+        {
+          title: 'Connect a Repo',
+          href: '/basics/replay-qa/connect-a-repo',
+        },
+        {
           title: 'Publishing with source maps',
           href: '/basics/replay-qa/source-maps',
         },
@@ -79,25 +87,6 @@ export const navigation: Record<NavigationNames, NavigationItem[]> = {
               href: '/basics/getting-started/record-your-playwright-tests/faq',
             },
           ],
-        },
-      ],
-    },
-    {
-      title: 'Replay QA',
-      icon: 'qa',
-      defaultOpen: true,
-      links: [
-        {
-          title: 'Overview',
-          href: '/basics/replay-qa/overview',
-        },
-        {
-          title: 'Connect a Repo',
-          href: '/basics/replay-qa/connect-a-repo',
-        },
-        {
-          title: 'Test a URL',
-          href: '/basics/replay-qa/test-a-url',
         },
       ],
     },
