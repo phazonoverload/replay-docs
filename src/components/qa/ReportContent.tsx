@@ -16,9 +16,7 @@ export function ReportContent() {
               <td>
                 <strong>Root cause</strong>
               </td>
-              <td>
-                Why the bug happened, grounded in recorded execution data
-              </td>
+              <td>Why the bug happened, grounded in recorded execution data</td>
             </tr>
             <tr>
               <td>
@@ -39,9 +37,7 @@ export function ReportContent() {
               <td>
                 <strong>Confidence score</strong>
               </td>
-              <td>
-                How reliably the bug was reproduced (high / medium / low)
-              </td>
+              <td>How reliably the bug was reproduced (high / medium / low)</td>
             </tr>
           </tbody>
         </table>
