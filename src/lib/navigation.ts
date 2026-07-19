@@ -15,6 +15,21 @@ type NavigationNames = 'basics' | 'learn' | 'reference'
 export const navigation: Record<NavigationNames, NavigationItem[]> = {
   basics: [
     {
+      title: 'Replay QA',
+      icon: 'beaker',
+      defaultOpen: true,
+      links: [
+        {
+          title: 'Overview',
+          href: '/basics/replay-qa/overview',
+        },
+        {
+          title: 'Publishing with source maps',
+          href: '/basics/replay-qa/source-maps',
+        },
+      ],
+    },
+    {
       title: 'Getting Started',
       icon: 'home',
       defaultOpen: true,
